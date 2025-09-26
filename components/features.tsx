@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import Image from "next/image"
 
 import { useTheme } from "next-themes"
 import Earth from "./ui/globe"
@@ -99,10 +100,11 @@ export default function Features() {
                   >
                     {/* Background Image */}
                     <div className="absolute inset-0">
-                      <img
+                      <Image
                         src="https://framerusercontent.com/images/UjqUIiBHmIcSH9vos9HlG2BF4bo.png"
                         alt="Arrow-CoreExchange"
-                        className="w-full h-full object-cover rounded-xl"
+                        fill
+                        className="object-cover rounded-xl"
                       />
                     </div>
 
@@ -192,10 +194,11 @@ export default function Features() {
                           transition={{ duration: 0.6, ease: "easeOut" }}
                           whileHover={{ scale: 1.1, rotate: 5 }}
                         >
-                          <img
+                          <Image
                             src="https://framerusercontent.com/images/q43ivjLz67lXhWf6TKfLIh0FY.png"
                             alt="Logo"
-                            className="w-full h-full object-cover"
+                            fill
+                            className="object-cover"
                           />
                         </motion.div>
 
@@ -431,9 +434,11 @@ export default function Features() {
                 </div>
                 <div className="flex grow items-center justify-center select-none relative min-h-[300px] p-4">
                   <div className="relative w-full max-w-sm">
-                    <img
+                    <Image
                       src="/modern-grid-layout.png"
                       alt="Dynamic Layout Example"
+                      width={400}
+                      height={300}
                       className="w-full h-auto rounded-lg shadow-lg"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>

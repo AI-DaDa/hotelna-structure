@@ -16,7 +16,6 @@ export const FollowerPointerCard = ({
   const x = useMotionValue(0)
   const y = useMotionValue(0)
   const ref = React.useRef<HTMLDivElement>(null)
-  const [rect, setRect] = useState<DOMRect | null>(null)
   const [isInside, setIsInside] = useState<boolean>(false)
 
   useEffect(() => {
@@ -30,26 +29,7 @@ export const FollowerPointerCard = ({
     console.log("[v0] isInside changed:", isInside)
   }, [isInside])
 
-  useEffect(() => {
-    const updateRect = () => {
-      if (ref.current) {
-        setRect(ref.current.getBoundingClientRect())
-      }
-    }
 
-    updateRect()
-
-    const handleResize = () => updateRect()
-    const handleScroll = () => updateRect()
-
-    window.addEventListener("resize", handleResize)
-    window.addEventListener("scroll", handleScroll)
-
-    return () => {
-      window.removeEventListener("resize", handleResize)
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     x.set(e.clientX)
@@ -86,16 +66,16 @@ export const FollowPointer = ({
   y,
   title,
 }: {
-  x: any
-  y: any
+  x: unknown
+  y: unknown
   title?: string | React.ReactNode
 }) => {
   return (
     <motion.div
       className="fixed z-[99999] pointer-events-none"
       style={{
-        top: y,
-        left: x,
+        top: y as ReturnType<typeof useMotionValue>,
+        left: x as ReturnType<typeof useMotionValue>,
         transform: "translate(-50%, -50%)",
         pointerEvents: "none",
       }}

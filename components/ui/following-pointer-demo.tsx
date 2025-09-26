@@ -1,4 +1,5 @@
 import { FollowerPointerCard } from "./following-pointer"
+import Image from "next/image"
 
 export default function FollowingPointerDemo() {
   return (
@@ -6,10 +7,11 @@ export default function FollowingPointerDemo() {
       <FollowerPointerCard title={<TitleComponent title={blogContent.author} avatar={blogContent.authorAvatar} />}>
         <div className="group relative h-full overflow-hidden rounded-2xl border border-zinc-100 bg-white transition duration-200 hover:shadow-xl">
           <div className="relative aspect-[16/10] w-full overflow-hidden rounded-tl-lg rounded-tr-lg bg-gray-100">
-            <img
+            <Image
               src={blogContent.image || "/placeholder.svg"}
               alt="thumbnail"
-              className="h-full transform object-cover transition duration-200 group-hover:scale-95 group-hover:rounded-2xl"
+              fill
+              className="transform object-cover transition duration-200 group-hover:scale-95 group-hover:rounded-2xl"
             />
           </div>
           <div className="p-4">
@@ -47,10 +49,10 @@ const TitleComponent = ({
   avatar: string
 }) => (
   <div className="flex items-center space-x-2">
-    <img
+    <Image
       src={avatar || "/placeholder.svg"}
-      height="20"
-      width="20"
+      height={20}
+      width={20}
       alt="thumbnail"
       className="rounded-full border-2 border-white"
     />

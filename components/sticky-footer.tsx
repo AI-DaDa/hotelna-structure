@@ -53,24 +53,24 @@ export function StickyFooter() {
                 <li
                   className="hover:underline cursor-pointer transition-colors"
                   style={{ color: "#121113" }}
-                  onMouseEnter={(e) => (e.target.style.color = "rgba(18, 17, 19, 0.8)")}
-                  onMouseLeave={(e) => (e.target.style.color = "#121113")}
+                  onMouseEnter={(e) => ((e.target as HTMLLIElement).style.color = "rgba(18, 17, 19, 0.8)")}
+                  onMouseLeave={(e) => ((e.target as HTMLLIElement).style.color = "#121113")}
                 >
                   Home
                 </li>
                 <li
                   className="hover:underline cursor-pointer transition-colors"
                   style={{ color: "#121113" }}
-                  onMouseEnter={(e) => (e.target.style.color = "rgba(18, 17, 19, 0.8)")}
-                  onMouseLeave={(e) => (e.target.style.color = "#121113")}
+                  onMouseEnter={(e) => ((e.target as HTMLLIElement).style.color = "rgba(18, 17, 19, 0.8)")}
+                  onMouseLeave={(e) => ((e.target as HTMLLIElement).style.color = "#121113")}
                 >
                   Our Story
                 </li>
                 <li
                   className="hover:underline cursor-pointer transition-colors"
                   style={{ color: "#121113" }}
-                  onMouseEnter={(e) => (e.target.style.color = "rgba(18, 17, 19, 0.8)")}
-                  onMouseLeave={(e) => (e.target.style.color = "#121113")}
+                  onMouseEnter={(e) => ((e.target as HTMLLIElement).style.color = "rgba(18, 17, 19, 0.8)")}
+                  onMouseLeave={(e) => ((e.target as HTMLLIElement).style.color = "#121113")}
                 >
                   Services
                 </li>
@@ -79,24 +79,24 @@ export function StickyFooter() {
                 <li
                   className="hover:underline cursor-pointer transition-colors"
                   style={{ color: "#121113" }}
-                  onMouseEnter={(e) => (e.target.style.color = "rgba(18, 17, 19, 0.8)")}
-                  onMouseLeave={(e) => (e.target.style.color = "#121113")}
+                  onMouseEnter={(e) => ((e.target as HTMLLIElement).style.color = "rgba(18, 17, 19, 0.8)")}
+                  onMouseLeave={(e) => ((e.target as HTMLLIElement).style.color = "#121113")}
                 >
                   Facebook
                 </li>
                 <li
                   className="hover:underline cursor-pointer transition-colors"
                   style={{ color: "#121113" }}
-                  onMouseEnter={(e) => (e.target.style.color = "rgba(18, 17, 19, 0.8)")}
-                  onMouseLeave={(e) => (e.target.style.color = "#121113")}
+                  onMouseEnter={(e) => ((e.target as HTMLLIElement).style.color = "rgba(18, 17, 19, 0.8)")}
+                  onMouseLeave={(e) => ((e.target as HTMLLIElement).style.color = "#121113")}
                 >
                   Instagram
                 </li>
                 <li
                   className="hover:underline cursor-pointer transition-colors"
                   style={{ color: "#121113" }}
-                  onMouseEnter={(e) => (e.target.style.color = "rgba(18, 17, 19, 0.8)")}
-                  onMouseLeave={(e) => (e.target.style.color = "#121113")}
+                  onMouseEnter={(e) => ((e.target as HTMLLIElement).style.color = "rgba(18, 17, 19, 0.8)")}
+                  onMouseLeave={(e) => ((e.target as HTMLLIElement).style.color = "#121113")}
                 >
                   Twitter
                 </li>

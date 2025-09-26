@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { PixelCard } from "./ui/pixelcards"
 import { geist } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
@@ -87,15 +88,15 @@ export default function Hero() {
 
   return (
     <div id="hero-section" className="bg-background relative min-h-screen w-full overflow-x-hidden py-32 md:px-6">
-      <img
+      <Image
         src="/vector1.webp"
         alt="Vector"
         width={300}
-        draggable={false}
         height={300}
+        draggable={false}
         className="absolute top-0 right-0 z-[2] object-cover object-center select-none"
       />
-      <img
+      <Image
         src="/vector2.png"
         alt="Vector"
         width={300}
@@ -103,20 +104,20 @@ export default function Hero() {
         draggable={false}
         className="absolute top-0 left-0 z-[2] object-cover object-center select-none"
       />
-      <img
+      <Image
         src="/vector5.webp"
         alt="Vector"
         width={300}
-        draggable={false}
         height={300}
+        draggable={false}
         className="absolute bottom-0 -left-44 z-[2] -rotate-90 object-cover object-center select-none"
       />
-      <img
+      <Image
         src="/vector6.png"
         alt="Vector"
         width={300}
-        draggable={false}
         height={300}
+        draggable={false}
         className="absolute -right-44 bottom-0 z-[2] rotate-90 object-cover object-center select-none"
       />
       <div className="container mx-auto px-4 2xl:max-w-[1400px]">
@@ -140,9 +141,11 @@ export default function Hero() {
             transition={{ duration: 0.75, delay: 0.2 }}
           >
             Prebuilt UI
-            <img
+            <Image
               src="/rose.webp"
               alt="Logo"
+              width={64}
+              height={64}
               draggable={false}
               className="mx-4 mb-2 inline-block h-12 w-12 md:h-16 md:w-16"
             />
@@ -193,7 +196,7 @@ export default function Hero() {
             className="mt-4 mr-2 hidden w-96 brightness-[4] select-none xl:block"
           />
           <span className="text-sm text-gray-500">We use industry standards like </span>
-          <img
+          <Image
             src="/nextjs.webp"
             draggable={false}
             alt="Next.js"
@@ -201,7 +204,7 @@ export default function Hero() {
             height={28}
             className="h-7 w-7 select-none"
           />
-          <img
+          <Image
             src="/tailwind.webp"
             alt="Tailwind CSS"
             width={28}
@@ -209,7 +212,7 @@ export default function Hero() {
             className="h-7 w-7 select-none"
             draggable={false}
           />
-          <img
+          <Image
             src="/framer.webp"
             alt="Framer Motion"
             width={24}
@@ -223,7 +226,7 @@ export default function Hero() {
             transition={{ duration: 1, delay: 1.25 }}
             className="mt-4 ml-2 hidden w-96 select-none xl:block"
           >
-            <img
+            <Image
               src="/vector3.webp"
               alt="Vector graphic"
               width={384}
