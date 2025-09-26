@@ -226,3 +226,4 @@ We welcome contributions to improve Hotelna. Please read our contributing guidel
 **Built with ❤️ by the Hotelna team**
 
 *Making hotel booking transparent, trustworthy, and stress-free for travelers worldwide.*
+# hotelna-structure
