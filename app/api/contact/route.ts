@@ -110,7 +110,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     try {
       body = await request.json()
     } catch {
-      logger.securityEvent('Invalid JSON in contact form', clientIP)
+      logger.warn('Invalid JSON in contact form', { ip: clientIP })
       return NextResponse.json(
         { error: 'Invalid request format' },
         { status: 400 }
@@ -120,8 +120,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     // Validate input schema
     const validation = contactFormSchema.safeParse(body)
     if (!validation.success) {
-      logger.securityEvent('Schema validation failed', clientIP, {
-        errors: validation.error.issues.map((e) => `${e.path.join('.')}: ${e.message}`)
+      logger.warn('Schema validation failed', {
+        ip: clientIP,
+        errors: validation.error.issues,
       })
       return NextResponse.json(
         { error: 'Invalid form data', details: validation.error.issues[0]?.message },
@@ -133,7 +134,10 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     // Timestamp validation (prevent too fast submissions)
     if (timestamp && (Date.now() - timestamp) < 3000) {
-      logger.securityEvent('Submission too fast', clientIP, { timeDiff: Date.now() - timestamp })
+      logger.warn('Submission too fast', {
+        ip: clientIP,
+        timeDiff: Date.now() - timestamp,
+      })
       return NextResponse.json(
         { error: 'Please slow down and try again' },
         { status: 400 }
@@ -149,11 +153,12 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const emailValidation: EmailValidationResult = await validateEmail(email)
 
     if (shouldBlockEmail(emailValidation)) {
-      logger.securityEvent('Email blocked', clientIP, {
+      logger.warn('Email blocked', {
+        ip: clientIP,
         email: email.replace(/(.{3}).*(@.*)/, '$1***$2'),
         reason: emailValidation.reason || 'Failed validation',
         isDisposable: emailValidation.isDisposable,
-        confidence: emailValidation.confidence
+        confidence: emailValidation.confidence,
       })
 
       return NextResponse.json(
