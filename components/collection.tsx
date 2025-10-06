@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card } from "@/components/ui/card"
 import { Bed, Utensils, Wifi, Sparkles } from "lucide-react"
@@ -163,10 +164,11 @@ export function Collections() {
                   {/* Main Image */}
                   <Card className="overflow-hidden border-[#d5b15f]/20 bg-card">
                     <div className="relative aspect-[4/3]">
-                      <img
+                      <Image
                         src={data.images[selectedImage].url || "/placeholder.svg"}
                         alt={data.images[selectedImage].title}
-                        className="w-full h-full object-cover"
+                        fill
+                        className="object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
@@ -190,10 +192,11 @@ export function Collections() {
                       >
                         <div className="flex gap-4 p-4">
                           <div className="relative w-32 h-24 flex-shrink-0">
-                            <img
+                            <Image
                               src={image.url || "/placeholder.svg"}
                               alt={image.title}
-                              className="w-full h-full object-cover rounded"
+                              fill
+                              className="object-cover rounded"
                             />
                           </div>
                           <div className="flex flex-col justify-center">

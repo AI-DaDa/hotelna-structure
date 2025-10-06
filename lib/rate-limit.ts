@@ -109,7 +109,6 @@ export async function rateLimit(
   const { maxRequests, windowMs, keyGenerator = defaultKeyGenerator } = config
   const key = keyGenerator(req)
   const now = Date.now()
-  const windowStart = now - windowMs
   const resetTime = now + windowMs
 
   try {

@@ -49,10 +49,6 @@ export function generateCSRFToken(req: NextRequest): string {
   const clientId = getClientIdentifier(req)
   const expiry = Date.now() + TOKEN_EXPIRY
 
-  const forwarded = req.headers.get('x-forwarded-for')
-  const realIP = req.headers.get('x-real-ip')
-  const ip = forwarded?.split(',')[0] || realIP || '127.0.0.1'
-
   tokenStore.set(token, {
     token,
     expiry,
@@ -92,20 +88,21 @@ export function validateCSRFToken(req: NextRequest, token: string): boolean {
 }
 
 // Get CSRF token from request headers or body
-export function extractCSRFToken(req: NextRequest, body?: any): string | null {
+export function extractCSRFToken(req: NextRequest, body?: unknown): string | null {
   // Try to get from headers first
   let token = req.headers.get('x-csrf-token')
 
   if (!token && body && typeof body === 'object') {
     // Try to get from request body
-    token = body.csrfToken || body._token
+    const bodyObj = body as Record<string, unknown>
+    token = (bodyObj.csrfToken as string) || (bodyObj._token as string)
   }
 
   return token
 }
 
 // Middleware helper for CSRF protection
-export function requireCSRFToken(req: NextRequest, body?: any): { valid: boolean; error?: string } {
+export function requireCSRFToken(req: NextRequest, body?: unknown): { valid: boolean; error?: string } {
   // Skip CSRF for GET, HEAD, OPTIONS requests
   if (['GET', 'HEAD', 'OPTIONS'].includes(req.method)) {
     return { valid: true }

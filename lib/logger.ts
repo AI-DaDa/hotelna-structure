@@ -1,12 +1,11 @@
 type LogLevel = 'error' | 'warn' | 'info' | 'debug'
 
 interface LogEntry {
-  timestamp: string
   level: LogLevel
   message: string
-  context?: Record<string, any>
-  ip?: string
-  userAgent?: string
+  data?: Record<string, unknown>
+  timestamp: string
+  context?: string
 }
 
 class Logger {
@@ -27,33 +26,25 @@ class Logger {
   }
 
   private formatLog(entry: LogEntry): string {
-    const { timestamp, level, message, context, ip, userAgent } = entry
+    const { timestamp, level, message, context } = entry
 
     let logMessage = `[${timestamp}] [${level.toUpperCase()}] ${message}`
-
-    if (ip) {
-      logMessage += ` | IP: ${ip}`
-    }
 
     if (context && Object.keys(context).length > 0) {
       logMessage += ` | Context: ${JSON.stringify(context)}`
     }
 
-    if (userAgent && this.logLevel === 'debug') {
-      logMessage += ` | UA: ${userAgent}`
-    }
-
     return logMessage
   }
 
-  private log(level: LogLevel, message: string, context?: Record<string, any>): void {
+  private log(level: LogLevel, message: string, data?: Record<string, unknown>): void {
     if (!this.shouldLog(level)) return
 
     const entry: LogEntry = {
       timestamp: new Date().toISOString(),
       level,
       message,
-      context,
+      context: data ? JSON.stringify(data) : undefined,
     }
 
     const formattedLog = this.formatLog(entry)
@@ -76,29 +67,23 @@ class Logger {
     }
   }
 
-  error(message: string, context?: Record<string, any>): void {
-    this.log('error', message, context)
+  error(message: string, error?: Error | Record<string, unknown> | string): void {
+    this.log('error', message, {
+      error: error instanceof Error ? error.message : error,
+      stack: error instanceof Error ? error.stack : undefined,
+    })
   }
 
-  warn(message: string, context?: Record<string, any>): void {
-    this.log('warn', message, context)
+  warn(message: string, data?: Record<string, unknown>): void {
+    this.log('warn', message, data)
   }
 
-  info(message: string, context?: Record<string, any>): void {
+  info(message: string, context?: Record<string, unknown>): void {
     this.log('info', message, context)
   }
 
-  debug(message: string, context?: Record<string, any>): void {
-    this.log('debug', message, context)
-  }
-
-  // Security-specific logging methods
-  securityEvent(event: string, ip: string, details?: Record<string, any>): void {
-    this.warn(`SECURITY: ${event}`, {
-      ip,
-      type: 'security_event',
-      ...details
-    })
+  debug(message: string, data?: Record<string, unknown>): void {
+    this.log('debug', message, data)
   }
 
   rateLimitExceeded(ip: string, endpoint: string, attempts: number): void {
