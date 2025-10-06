@@ -228,3 +228,4 @@ We welcome contributions to improve Hotelna. Please read our contributing guidel
 *Making hotel booking transparent, trustworthy, and stress-free for travelers worldwide.*
 # hotelna-structure
 # hotelna-structure
+# hotelna-structure
