@@ -28,7 +28,7 @@ export function About() {
       })
 
       // Set initial state - all characters dim
-      gsap.set(splitText.chars, {
+      gsap.set(splitText.words, {
         color: "rgba(20, 20, 20, 0.3)"
       })
 
@@ -47,7 +47,7 @@ export function About() {
       })
 
       // Add stagger animation to timeline
-      tl.to(splitText.chars, {
+      tl.to(splitText.words, {
         color: "rgba(255, 255, 255, 1)",
         stagger: {
           each: 0.01,
@@ -88,7 +88,7 @@ export function About() {
               fontSize: 'clamp(3rem, 8vw, 8rem)',
               textAlign: 'center',
               color: 'rgba(255, 255, 255, 1)',
-              fontFamily: 'Roboto Flex',
+              fontFamily: 'Dubai',
               fontWeight: 'bold',
               fontStyle: 'normal',
               textDecoration: 'none',
@@ -110,7 +110,7 @@ export function About() {
             fontSize: 'clamp(1rem, 3vw, 2.5rem)',
             textAlign: 'center',
             color: 'rgba(255, 255, 255, 1)',
-            fontFamily: 'Roboto Flex',
+            fontFamily: 'Dubai',
             fontWeight: 'bold',
             fontStyle: 'normal',
             textDecoration: 'none',
@@ -121,19 +121,19 @@ export function About() {
             overflowWrap: 'break-word',
           }}
         >
-The Story Behind Hotelna
+Hotelna – A Hub for Hospitality
 
-The idea for Hotelna was born out of a very real — and very disappointing — travel experience. My wife Louise, our two children Olivia and William, and I were on a European road trip and like so many travellers, we booked our overnight stays based on glossy photos and glowing reviews on popular booking platforms.
 
-The reality? Shockingly different.
 
-We arrived to find dirty toilets, shabby furniture, and locations that felt far less appealing (and far less safe) than promised. The charm portrayed online was nowhere to be found — replaced instead by a sense of frustration and wasted money.
+Hotelna is a bespoke hub created for hoteliers, investors, and guests within the world of luxury hospitality. Founded by Solomon Khaddour, and built on over two decades of leadership in London’s most prestigious five-star hotels, Hotelna brings together consultancy expertise with an innovative guest review and booking platform.
 
-That&apos;s when I knew something had to change.
 
-At Hotelna, we feature hotels that have been personally visited and honestly reviewed by hospitality professionals — not anonymous users or marketing teams. Each property is assessed for cleanliness, comfort, service quality, and location authenticity. The goal is simple: to give travellers the truth before they book, so that expectations match reality.
 
-Because in travel — and in life — there&apos;s nothing more valuable than trust.
+At its core, Hotelna is about trust, credibility, and excellence. Hotels benefit from tailored strategic support, while guests enjoy verified reviews and the ability to book directly with some of the world’s finest properties. Unlike open platforms, only genuine hotel guests can share their experience — ensuring reviews are seamless, authentic, and reliable.
+
+
+
+Hotelna is where hoteliers, operators, and travellers connect to shape the future of true luxury hospitality.
         </p>
       </div>
     </section>

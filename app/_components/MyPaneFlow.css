@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:ital,wght@0,100..1000;1,100..1000&display=swap");
+/* Dubai fonts are imported in the main layout */
 .paneflow-amaranth-egret-191 {
   --pf-padding: 1cqw;
   --pf-gap: 1cqw;
@@ -8,7 +7,7 @@
   width: 100%;
   height: auto;
   aspect-ratio: 16/9;
-  font-family: Inter;
+  font-family: 'Dubai', sans-serif;
   font-synthesis-weight: none;
   font-synthesis-style: none;
 }
@@ -101,7 +100,7 @@
   font-size: 10cqw;
   text-align: left;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
@@ -114,7 +113,7 @@
   font-size: 10cqw;
   text-align: left;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
@@ -127,7 +126,7 @@
   font-size: 10cqw;
   text-align: left;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
@@ -140,7 +139,7 @@
   font-size: 10cqw;
   text-align: left;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
@@ -161,7 +160,7 @@
   font-size: 9cqw;
   text-align: left;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
@@ -186,7 +185,7 @@
   font-size: 4cqw;
   text-align: center;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
@@ -215,7 +214,7 @@
   font-size: 3cqw;
   text-align: left;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
@@ -228,7 +227,7 @@
   font-size: 6cqw;
   text-align: left;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
@@ -257,7 +256,7 @@
   font-size: 6cqw;
   text-align: center;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
@@ -270,7 +269,7 @@
   font-size: 6cqw;
   text-align: center;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
@@ -283,7 +282,7 @@
   font-size: 9cqw;
   text-align: center;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
@@ -304,7 +303,7 @@
   font-size: 8cqw;
   text-align: center;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
@@ -317,7 +316,7 @@
   font-size: 9cqw;
   text-align: left;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
@@ -330,7 +329,7 @@
   font-size: 3cqw;
   text-align: left;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
@@ -351,7 +350,7 @@
   font-size: 6cqw;
   text-align: center;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
@@ -380,7 +379,7 @@
   font-size: 6cqw;
   text-align: center;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;
@@ -393,7 +392,7 @@
   font-size: 6cqw;
   text-align: center;
   color: rgba(255, 255, 255, 1);
-  font-family: Roboto Flex;
+  font-family: 'Dubai', sans-serif;
   font-weight: bold;
   font-style: normal;
   text-decoration: none;

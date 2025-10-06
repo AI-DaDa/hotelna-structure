@@ -103,7 +103,7 @@ export function StickyFooter() {
               </ul>
             </motion.div>
             <motion.div
-              className="absolute bottom-0 left-0 translate-y-1/3 select-none"
+              className="absolute bottom-20 left-20 translate-y-1/3 select-none"
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}

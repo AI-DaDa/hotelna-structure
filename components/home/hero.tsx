@@ -64,7 +64,7 @@ export default function Hero() {
             <div className="swiper-slide relative">
               <div className="absolute inset-0">
                 <Image
-                  src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  src="/Assets/Bedroom 4 at 11 Cadogan Gardens.jpg"
                   alt="Hotel Management"
                   fill
                   className="object-cover"
@@ -80,7 +80,7 @@ export default function Hero() {
             <div className="swiper-slide relative">
               <div className="absolute inset-0">
                 <Image
-                  src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  src="/Assets/Cadogan Hotel Dinner Image.avif"
                   alt="Room Booking"
                   fill
                   className="object-cover"
@@ -92,21 +92,26 @@ export default function Hero() {
                 <p className="text-gray-200 text-xl max-w-3xl">Easy-to-use booking system for guests and staff</p> */}
               </div>
             </div>
+{/*
+
             <div className="swiper-slide relative">
               <div className="absolute inset-0">
                 <Image
-                  src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80"
+                  src="/Assets/"
                   alt="Analytics Dashboard"
                   fill
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-black/50"></div>
               </div>
+
+  </div> */}
+
               {/* <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
                 <h3 className="text-5xl font-bold text-white mb-6">Analytics Dashboard</h3>
                 <p className="text-gray-200 text-xl max-w-3xl">Get insights into your hotel performance with detailed analytics</p>
               </div> */}
-            </div>
+
           </div>
           {/* Add Pagination */}
           <div className="swiper-pagination !bottom-28 !z-20" style={{

@@ -4,17 +4,24 @@ import Hero from "@/components/home/hero"
 
 import { TestimonialsSection } from "@/components/testimonials"
 // import { NewReleasePromo } from "@/components/new-release-promo"
-import { FAQSection } from "@/components/faq-section"
+// import { FAQSection } from "@/components/faq-section"
 import { About } from "@/components/about"
 import { Contact } from "@/components/contact"
 import { StickyFooter } from "@/components/sticky-footer"
 // import VideoScrollTrigger from "@/components/VideoScrollTrigger"
 import Image from "next/image"
-import ScrollControlledPaneFlowSimple from "@/components/ScrollControlledPaneFlowSimple"
+// import ScrollControlledPaneFlowSimple from "@/components/ScrollControlledPaneFlowSimple"
 import { LogoCarousel } from "@/components/logo-carsoule"
 import { Quote } from "@/components/quote"
-import CustomCursor from "./_components/custom-cursor"
+import { Collections } from "@/components/collection"
+import  Services from "@/components/services"
 
+import { gsap } from 'gsap';
+import { useGSAP } from "@gsap/react"
+import { ScrollSmoother } from "gsap/ScrollSmoother"
+import { ScrollTrigger } from "gsap/all"
+
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -137,7 +144,7 @@ export default function Home() {
               }
             }}
           >
-            <span className="relative z-20">About</span>
+            <span className="relative z-20">Collection</span>
           </a>
           <a
             className="relative px-4 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
@@ -156,7 +163,7 @@ export default function Home() {
               }
             }}
           >
-            <span className="relative z-20">Services</span>
+            <span className="relative z-20">Reviews</span>
           </a>
           <a
             className="relative px-4 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
@@ -175,9 +182,9 @@ export default function Home() {
               }
             }}
           >
-            <span className="relative z-20">Testimonials</span>
+            <span className="relative z-20">Consultancy</span>
           </a>
-          <a
+          {/* <a
             className="relative px-4 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
             onClick={(e) => {
               e.preventDefault()
@@ -195,7 +202,7 @@ export default function Home() {
             }}
           >
             <span className="relative z-20">FAQ</span>
-          </a>
+          </a> */}
           <a
             className="relative px-4 py-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
             onClick={(e) => {
@@ -289,7 +296,7 @@ export default function Home() {
                 onClick={() => handleMobileNavClick("about")}
                 className="text-left px-4 py-3 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
               >
-                About
+                Collection
               </button>
               <button
                 onClick={() => handleMobileNavClick("Services")}
@@ -301,19 +308,19 @@ export default function Home() {
                 onClick={() => handleMobileNavClick("testimonials")}
                 className="text-left px-4 py-3 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
               >
-                Testimonials
+                Reviews
               </button>
               <button
                 onClick={() => handleMobileNavClick("faq")}
                 className="text-left px-4 py-3 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
               >
-                FAQ
+                Consultancy
               </button>
                             <button
                 onClick={() => handleMobileNavClick("contact")}
                 className="text-left px-4 py-3 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-background/50"
               >
-                Contact us
+                Contact Hotelna
               </button>
               {/* <div className="border-t border-border/50 pt-4 mt-4 flex flex-col space-y-3">
                 <a
@@ -334,63 +341,42 @@ export default function Home() {
         </div>
       )}
 
-      {/* Custom Cursor - Should be at top level for proper z-index */}
-      <CustomCursor/>
-
       {/* Hero Section */}
       <div id="Home">
       <Hero />
-</div>
+      </div>
       {/* Pricing Section */}
       <div id="about">
         {/* <MyPaneFlow /> */}
         <About />
       </div>
 
-      {/* Features Section */}
-      <div id="Services">
-        {/* <Test /> */}
-        <ScrollControlledPaneFlowSimple />
-        <div className="text-foreground relative overflow-hidden py-8 sm:py-12 md:py-24">
-          <div className="bg-primary absolute -top-10 left-1/2 h-16 w-44 -translate-x-1/2 rounded-full opacity-40 blur-3xl select-none"></div>
-          <div className="via-primary/50 absolute top-0 left-1/2 h-px w-3/5 -translate-x-1/2 bg-gradient-to-r from-transparent to-transparent transition-all ease-in-out"></div>
-        </div>
-        {/* <Features /> */}
-      </div>
-
-      {/* Video Scroll Trigger Demo - Commented out until video file is available */}
-      {/*
-      <div id="video-demo" className="relative">
-        <VideoScrollTrigger
-          videoSrc="/videos/hotel-demo.mp4"
-          containerClassName="relative w-full h-[400vh]"
-          className="w-full h-full object-cover"
-          startTrigger="top center"
-          endTrigger="bottom center"
-        />
-      </div>
-      */}
-
       <div>
-        <Quote />
+        <Collections />
       </div>
       {/* Testimonials Section */}
       <div id="testimonials">
         <TestimonialsSection />
       </div>
-      <div>
+
+
+      {/* Consultancy Section */}
+      {/* <div id="Services">
+        <ScrollControlledPaneFlowSimple />
+        <div className="text-foreground relative overflow-hidden py-8 sm:py-12 md:py-24">
+          <div className="bg-primary absolute -top-10 left-1/2 h-16 w-44 -translate-x-1/2 rounded-full opacity-40 blur-3xl select-none"></div>
+          <div className="via-primary/50 absolute top-0 left-1/2 h-px w-3/5 -translate-x-1/2 bg-gradient-to-r from-transparent to-transparent transition-all ease-in-out"></div>
+        </div>
+      </div> */}
+<div>      <Services />
+</div>
+       <div id="quote">
+        <Quote />
+      </div>
+      <div id="partners">
         <LogoCarousel />
       </div>
-      {/* <NewReleasePromo /> */}
 
-      {/* FAQ Section */}
-      <div id="faq">
-        <FAQSection />
-      </div>
-
-      <div className="mb-120">
-        {/* <Contact /> */}
-      </div>
       {/* Contact Section   */}
       <div id="contact">
         <Contact />

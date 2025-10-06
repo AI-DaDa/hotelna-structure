@@ -1,7 +1,17 @@
 "use client"
 
 import { useState } from "react"
+import { usePathname } from "next/navigation"
+import gsap from "gsap"
+import { ScrollSmoother } from "gsap/dist/ScrollSmoother"
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
+import { useGSAP } from "@gsap/react"
 import Loading from "./loading"
+import CustomCursor from "./_components/custom-cursor"
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
+}
 
 interface ClientLayoutProps {
   children: React.ReactNode
@@ -10,6 +20,7 @@ interface ClientLayoutProps {
 export default function ClientLayout({ children }: ClientLayoutProps) {
   const [isLoading, setIsLoading] = useState(true)
   const [showContent, setShowContent] = useState(false)
+  const pathname = usePathname()
 
   const handleLoadingComplete = () => {
     // Start fade out of loading screen
@@ -20,8 +31,26 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
     }, 300)
   }
 
+  useGSAP(
+    () => {
+      if (showContent) {
+        ScrollSmoother.create({
+          smooth: 2,
+          effects: true,
+        })
+      }
+    },
+    {
+      dependencies: [pathname, showContent],
+      revertOnUpdate: true,
+    }
+  )
+
   return (
     <>
+      {/* Custom Cursor - Available on all pages */}
+      <CustomCursor />
+
       {/* Loading Screen */}
       {isLoading && (
         <div
@@ -33,13 +62,16 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
         </div>
       )}
 
-      {/* Main Content */}
-      <div
-        className={`transition-opacity duration-500 ${
-          showContent ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        {children}
+      {/* Main Content with ScrollSmoother */}
+      <div id="smooth-wrapper">
+        <div
+          id="smooth-content"
+          className={`transition-opacity duration-500 ${
+            showContent ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {children}
+        </div>
       </div>
     </>
   )

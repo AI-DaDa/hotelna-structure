@@ -3,21 +3,33 @@
 export function Quote() {
   return (
     <section className="w-full pb-24 px-4 b">
-      <div className="mx-auto max-w-full rounded-[40px] border border-black/5 dark:border-white/20 p-2 shadow-sm">
-        <div className="relative mx-auto h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] max-w-full overflow-hidden rounded-[38px] border border-black/5 dark:border-white/20 bg-primary p-2 shadow-sm">
-          {/* Subtle radial glow from center */}
+      <div className="mx-auto max-w-4xl rounded-[40px] border border-white/20 p-2 shadow-sm">
+        <div className="relative mx-auto h-[240px] sm:h-[280px] md:h-[320px] lg:h-[360px] max-w-full overflow-hidden rounded-[38px] border border-white/20 bg-primary p-2 shadow-sm">
+          {/* Hotelna patterns background at 45 degrees */}
           <div
-            className="absolute inset-0 z-0"
+            className="absolute inset-0 z-0 opacity-35"
+            style={{
+              backgroundImage: "url('/images/Hotelna-Patterns.jpg')",
+              backgroundSize: "700px auto",
+              backgroundRepeat: "repeat",
+              backgroundPosition: "center",
+              transform: "",
+              transformOrigin: "center",
+            }}
+          />
+          {/* Subtle radial glow overlay */}
+          <div
+            className="absolute inset-0 z-10"
             style={{
               background: "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(255, 64, 23, 0.1), transparent 70%)",
             }}
           />
 
 
-          <div className="relative z-10 flex items-center justify-center h-full">
+          <div className="relative z-20 flex items-center justify-center h-full">
             <div className="text-center px-4 sm:px-6 lg:px-8">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight max-w-7xl mx-auto">True Hospitality is not just about service, it&apos;s about creating moments that guests carry with them long after they&apos;ve checked out.</h2>
-              <p className="text-sm sm:text-base md:text-lg text-white/90 max-w-2xl mx-auto">- Solomon Khaddour, Founder & CEO of Hotelna</p>
+              <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-3 sm:mb-4 md:mb-5 leading-tight max-w-6xl mx-auto"> My approach is grounded, strategic, and personalised — built on a proven track record of turning vision into measurable success. True Hospitality is not just about service, it&apos;s about creating moments that guests carry with them long after they&apos;ve checked out.</h2>
+              <p className="text-xs sm:text-sm md:text-base text-white max-w-xl mx-auto">- Solomon Khaddour, Founder & CEO of Hotelna</p>
             </div>
                  {/* <a href="/docs/get-started">
                   <div className="group border-border bg-secondary/70 flex h-[64px] cursor-pointer items-center gap-2 rounded-full border p-[11px]">

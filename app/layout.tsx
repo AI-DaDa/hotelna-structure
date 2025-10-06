@@ -1,21 +1,10 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Roboto_Flex } from "next/font/google"
-import { Roboto_Mono } from "next/font/google"
 import ClientLayout from "./client-layout"
 
 import "./globals.css"
 import "./swiper-custom.css"
-
-const robotoFlex = Roboto_Flex({
-  subsets: ["latin"],
-  variable: "--font-sans",
-})
-
-const robotoMono = Roboto_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
+import "../public/font/style.css"
 
 export const metadata: Metadata = {
   title: "Hotelna - Hospitality Consultancy",
@@ -44,13 +33,14 @@ export default function RootLayout({
       <head>
         <style>{`
 html {
-  font-family: ${robotoFlex.style.fontFamily};
-  --font-sans: ${robotoFlex.variable};
-  --font-mono: ${robotoMono.variable};
+  font-family: 'Dubai', sans-serif;
+  --font-sans: 'Dubai', sans-serif;
+  --font-heading: 'Dubai', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
         `}</style>
       </head>
-      <body className={`dark ${robotoFlex.variable} ${robotoMono.variable}`}>
+      <body className="dark">
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

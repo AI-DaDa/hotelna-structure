@@ -113,7 +113,7 @@ export function TestimonialsSection() {
                 fontSize: '9cqw',
                 textAlign: 'center',
                 color: 'rgba(255, 255, 255, 1)',
-                fontFamily: 'Roboto Flex',
+                fontFamily: 'Dubai',
                 fontWeight: 'bold',
                 fontStyle: 'normal',
                 textDecoration: 'none',
@@ -132,33 +132,46 @@ export function TestimonialsSection() {
           </p>
         </div>
 
-        <div className="my-16 flex max-h-[738px] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)]">
-          <div>
-            <Marquee pauseOnHover vertical className="[--duration:20s]">
-              {firstColumn.map((testimonial) => (
-                <TestimonialCard key={testimonial.username} {...testimonial} />
-              ))}
-            </Marquee>
+        <div className="relative my-16">
+          {/* Blurred testimonials content */}
+          <div className="flex max-h-[738px] justify-center gap-6 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] blur-sm">
+            <div>
+              <Marquee pauseOnHover vertical className="[--duration:20s]">
+                {firstColumn.map((testimonial) => (
+                  <TestimonialCard key={testimonial.username} {...testimonial} />
+                ))}
+              </Marquee>
+            </div>
+
+            <div className="hidden md:block">
+              <Marquee reverse pauseOnHover vertical className="[--duration:25s]">
+                {secondColumn.map((testimonial) => (
+                  <TestimonialCard key={testimonial.username} {...testimonial} />
+                ))}
+              </Marquee>
+            </div>
+
+            <div className="hidden lg:block">
+              <Marquee pauseOnHover vertical className="[--duration:30s]">
+                {thirdColumn.map((testimonial) => (
+                  <TestimonialCard key={testimonial.username} {...testimonial} />
+                ))}
+              </Marquee>
+            </div>
           </div>
 
-          <div className="hidden md:block">
-            <Marquee reverse pauseOnHover vertical className="[--duration:25s]">
-              {secondColumn.map((testimonial) => (
-                <TestimonialCard key={testimonial.username} {...testimonial} />
-              ))}
-            </Marquee>
-          </div>
-
-          <div className="hidden lg:block">
-            <Marquee pauseOnHover vertical className="[--duration:30s]">
-              {thirdColumn.map((testimonial) => (
-                <TestimonialCard key={testimonial.username} {...testimonial} />
-              ))}
-            </Marquee>
+          {/* Overlay with "To be launched soon" message */}
+          <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+            <div className="text-center">
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                To be launched soon
+              </h3>
+              <div className="w-24 h-1 bg-gradient-to-r from-[#d5b15f]/60 via-[#d5b15f] to-[#d5b15f]/60 mx-auto rounded-full"></div>
+            </div>
           </div>
         </div>
 
-        <div className="-mt-8 flex justify-center">
+        <div className="-mt-8 flex justify-center opacity-50 pointer-events-none">
           <button className="group relative inline-flex items-center gap-2 rounded-full border border-[#d5b15f]/30 bg-black/50 px-6 py-3 text-sm font-medium text-white transition-all hover:border-[#d5b15f]/60 hover:bg-[#d5b15f]/10 active:scale-95">
             <div className="absolute inset-x-0 -top-px mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-[#d5b15f]/40 to-transparent"></div>
             <div className="absolute inset-x-0 -bottom-px mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-[#d5b15f]/40 to-transparent"></div>

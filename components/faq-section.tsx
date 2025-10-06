@@ -133,7 +133,7 @@ export function FAQSection() {
       style={{
         containerType: 'size',
         containerName: 'faq-section',
-        fontFamily: 'Roboto Flex, sans-serif',
+        fontFamily: 'Dubai, sans-serif',
         fontSynthesis: 'none',
       }}
     >
@@ -148,7 +148,7 @@ export function FAQSection() {
               ref={titleRef}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 bg-gradient-to-r text-white leading-tight"
               style={{
-                fontFamily: 'Roboto Flex, sans-serif',
+                fontFamily: 'Dubai, sans-serif',
                 letterSpacing: '-0.02em',
                 textShadow: '0 4px 20px rgba(213, 177, 95, 0.3)',
               }}

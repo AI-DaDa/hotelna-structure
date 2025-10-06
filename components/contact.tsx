@@ -18,8 +18,24 @@ export function Contact() {
     tokyo: new Date()
   })
 
+  // Form state
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+    honeypot: '' // Anti-spam honeypot field
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [submitMessage, setSubmitMessage] = useState('')
+  const [formTimestamp, setFormTimestamp] = useState<number>(0)
+
   useEffect(() => {
     setMounted(true)
+
+    // Set form timestamp when component mounts
+    setFormTimestamp(Date.now())
 
     // Setup ScrollTrigger for contact section
     const ctx = gsap.context(() => {
@@ -60,6 +76,81 @@ export function Contact() {
       second: '2-digit',
       hour12: true
     })
+  }
+
+  // Handle form input changes
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setSubmitMessage('')
+
+    // Client-side validation
+    if (formData.name.trim().length < 2) {
+      setSubmitStatus('error')
+      setSubmitMessage('Please enter a valid name (at least 2 characters).')
+      setIsSubmitting(false)
+      return
+    }
+
+    if (formData.subject.trim().length < 5) {
+      setSubmitStatus('error')
+      setSubmitMessage('Please enter a more descriptive subject (at least 5 characters).')
+      setIsSubmitting(false)
+      return
+    }
+
+    if (formData.message.trim().length < 10) {
+      setSubmitStatus('error')
+      setSubmitMessage('Please enter a more detailed message (at least 10 characters).')
+      setIsSubmitting(false)
+      return
+    }
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          timestamp: formTimestamp
+        }),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setSubmitStatus('success')
+        setSubmitMessage('Thank you! Your message has been sent successfully. We\'ll get back to you soon.')
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+          honeypot: ''
+        })
+        setFormTimestamp(Date.now()) // Reset timestamp
+      } else {
+        setSubmitStatus('error')
+        setSubmitMessage(data.error || 'Something went wrong. Please try again.')
+      }
+    } catch {
+      setSubmitStatus('error')
+      setSubmitMessage('Failed to send message. Please check your connection and try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -230,7 +321,7 @@ export function Contact() {
                   ></motion.div>
                   <div>
                     <p className="text-white/80 text-sm">Email</p>
-                    <p className="text-white font-medium">hello@hotelna.com</p>
+                    <p className="text-white font-medium">sk@hotelna.co.uk</p>
                   </div>
                 </motion.div>
                 <motion.div
@@ -247,8 +338,8 @@ export function Contact() {
                     transition={{ duration: 0.3, delay: 1.5, type: "spring" }}
                   ></motion.div>
                   <div>
-                    <p className="text-white/80 text-sm">Phone</p>
-                    <p className="text-white font-medium">+1 (555) 123-4567</p>
+                    <p className="text-white/80 text-sm">Website</p>
+                    <p className="text-white font-medium">hotelna.co.uk</p>
                   </div>
                 </motion.div>
                 <motion.div
@@ -265,8 +356,8 @@ export function Contact() {
                     transition={{ duration: 0.3, delay: 1.6, type: "spring" }}
                   ></motion.div>
                   <div>
-                    <p className="text-white/80 text-sm">Address</p>
-                    <p className="text-white font-medium">123 Hotel Street, City, Country</p>
+                    <p className="text-white/80 text-sm">Consultancy</p>
+                    <p className="text-white font-medium">Hotelna Hospitality Consultancy</p>
                   </div>
                 </motion.div>
               </motion.div>
@@ -298,7 +389,20 @@ export function Contact() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 1.1 }}
+                onSubmit={handleSubmit}
               >
+                {/* Honeypot field - hidden from users but visible to bots */}
+                <input
+                  type="text"
+                  name="honeypot"
+                  value={formData.honeypot}
+                  onChange={handleInputChange}
+                  className="absolute -left-[9999px] w-px h-px opacity-0 pointer-events-none"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -310,11 +414,32 @@ export function Contact() {
                   <motion.input
                     type="text"
                     id="name"
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#d5b15f] focus:border-transparent transition-all duration-200"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    maxLength={100}
+                    className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#d5b15f] focus:border-transparent transition-all duration-200 ${
+                      formData.name.length > 0 && formData.name.length < 2
+                        ? 'border-red-400/50'
+                        : 'border-white/20'
+                    }`}
                     placeholder="Your Name"
                     required
+                    disabled={isSubmitting}
                     whileFocus={{ scale: 1.02 }}
                   />
+                  <div className="flex justify-between mt-1">
+                    <span className={`text-xs ${
+                      formData.name.length > 0 && formData.name.length < 2
+                        ? 'text-red-400'
+                        : 'text-white/60'
+                    }`}>
+                      {formData.name.length > 0 && formData.name.length < 2 ? 'At least 2 characters required' : ''}
+                    </span>
+                    <span className="text-xs text-white/40">
+                      {formData.name.length}/100
+                    </span>
+                  </div>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -327,9 +452,13 @@ export function Contact() {
                   <motion.input
                     type="email"
                     id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#d5b15f] focus:border-transparent transition-all duration-200"
                     placeholder="Your Email"
                     required
+                    disabled={isSubmitting}
                     whileFocus={{ scale: 1.02 }}
                   />
                 </motion.div>
@@ -344,11 +473,32 @@ export function Contact() {
                   <motion.input
                     type="text"
                     id="subject"
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#d5b15f] focus:border-transparent transition-all duration-200"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    maxLength={200}
+                    className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#d5b15f] focus:border-transparent transition-all duration-200 ${
+                      formData.subject.length > 0 && formData.subject.length < 5
+                        ? 'border-red-400/50'
+                        : 'border-white/20'
+                    }`}
                     placeholder="Message Subject"
                     required
+                    disabled={isSubmitting}
                     whileFocus={{ scale: 1.02 }}
                   />
+                  <div className="flex justify-between mt-1">
+                    <span className={`text-xs ${
+                      formData.subject.length > 0 && formData.subject.length < 5
+                        ? 'text-red-400'
+                        : 'text-white/60'
+                    }`}>
+                      {formData.subject.length > 0 && formData.subject.length < 5 ? 'At least 5 characters required' : ''}
+                    </span>
+                    <span className="text-xs text-white/40">
+                      {formData.subject.length}/200
+                    </span>
+                  </div>
                 </motion.div>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -360,24 +510,73 @@ export function Contact() {
                   </label>
                   <motion.textarea
                     id="message"
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#d5b15f] focus:border-transparent transition-all duration-200 resize-none"
-                    placeholder="Your Message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    maxLength={2000}
+                    className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#d5b15f] focus:border-transparent transition-all duration-200 resize-none ${
+                      formData.message.length > 0 && formData.message.length < 10
+                        ? 'border-red-400/50'
+                        : 'border-white/20'
+                    }`}
+                    placeholder="Please describe your inquiry in detail..."
                     rows={6}
                     required
+                    disabled={isSubmitting}
                     whileFocus={{ scale: 1.02 }}
                   />
+                  <div className="flex justify-between mt-1">
+                    <span className={`text-xs ${
+                      formData.message.length > 0 && formData.message.length < 10
+                        ? 'text-red-400'
+                        : 'text-white/60'
+                    }`}>
+                      {formData.message.length > 0 && formData.message.length < 10 ? 'At least 10 characters required' : ''}
+                    </span>
+                    <span className="text-xs text-white/40">
+                      {formData.message.length}/2000
+                    </span>
+                  </div>
                 </motion.div>
                 <motion.button
                   type="submit"
-                  className="w-full px-6 py-3 bg-[#d5b15f] text-black font-semibold rounded-xl shadow-md hover:bg-[#c4a24f] transition-all duration-200"
+                  disabled={isSubmitting}
+                  className={`w-full px-6 py-3 font-semibold rounded-xl shadow-md transition-all duration-200 flex items-center justify-center gap-2 ${
+                    isSubmitting
+                      ? 'bg-gray-400 text-gray-700 cursor-not-allowed'
+                      : 'bg-[#d5b15f] text-black hover:bg-[#c4a24f]'
+                  }`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 1.6 }}
-                  whileHover={{ scale: 1.05, backgroundColor: "#c4a24f" }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={isSubmitting ? {} : { scale: 1.05, backgroundColor: "#c4a24f" }}
+                  whileTap={isSubmitting ? {} : { scale: 0.98 }}
                 >
-                  Send Message
+                  {isSubmitting && (
+                    <motion.div
+                      className="w-4 h-4 border-2 border-gray-700 border-t-transparent rounded-full"
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    />
+                  )}
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </motion.button>
+
+                {/* Status Message */}
+                {submitStatus !== 'idle' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className={`p-4 rounded-xl ${
+                      submitStatus === 'success'
+                        ? 'bg-green-500/10 border border-green-500/20 text-green-400'
+                        : 'bg-red-500/10 border border-red-500/20 text-red-400'
+                    }`}
+                  >
+                    <p className="text-sm">{submitMessage}</p>
+                  </motion.div>
+                )}
                 </motion.form>
               </motion.div>
             </motion.div>

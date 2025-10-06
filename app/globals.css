@@ -36,7 +36,8 @@
   --sidebar-accent-foreground: #121113; /* Updated sidebar accent foreground to match */
   --sidebar-border: oklch(0.9276 0.0058 264.5313);
   --sidebar-ring: oklch(0.6716 0.1368 48.513);
-  --font-sans: Geist Mono, ui-monospace, monospace;
+  --font-sans: 'Dubai', sans-serif;
+  --font-heading: 'Dubai', sans-serif;
   --font-serif: serif;
   --font-mono: JetBrains Mono, monospace;
   --radius: 0.75rem;
@@ -87,7 +88,8 @@
   --sidebar-accent-foreground: oklch(0.8109 0 0);
   --sidebar-border: oklch(0.252 0 0);
   --sidebar-ring: oklch(0.7214 0.1337 49.9802);
-  --font-sans: Geist Mono, ui-monospace, monospace;
+  --font-sans: 'Dubai', sans-serif;
+  --font-heading: 'Dubai', sans-serif;
   --font-serif: serif;
   --font-mono: JetBrains Mono, monospace;
   --radius: 0.75rem;
@@ -136,6 +138,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
 
   --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
   --font-mono: var(--font-mono);
   --font-serif: var(--font-serif);
 
@@ -227,4 +230,37 @@ body {
 
 .animate-shiny-text {
   animation: shiny-text 3s ease-in-out infinite;
+}
+
+/* Dubai Font Utility Classes */
+.font-dubai-light {
+  font-family: 'Dubai', sans-serif;
+  font-weight: 300;
+}
+
+.font-dubai-regular {
+  font-family: 'Dubai', sans-serif;
+  font-weight: 400;
+}
+
+.font-dubai-medium {
+  font-family: 'Dubai', sans-serif;
+  font-weight: 500;
+}
+
+.font-dubai-bold {
+  font-family: 'Dubai', sans-serif;
+  font-weight: 700;
+}
+
+/* Heading styles using Dubai Bold */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Dubai', sans-serif;
+  font-weight: 700;
+}
+
+/* Ensure body text uses Dubai Regular */
+body {
+  font-family: 'Dubai', sans-serif;
+  font-weight: 400;
 }

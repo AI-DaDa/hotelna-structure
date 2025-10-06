@@ -1,59 +1,22 @@
-import { useEffect, useRef, useImperativeHandle, forwardRef } from "react";
+import { useEffect, useRef } from "react";
 import PaneFlow from "./paneflow";
 import "./paneflow.css";
 import "./MyPaneFlow.css";
 
-interface MyPaneFlowHandle {
-  setPane: (index: number) => void;
-  nextPane: () => void;
-  prevPane: () => void;
-  currentPaneIndex: number;
-}
-
-const MyPaneFlowComplete = forwardRef<MyPaneFlowHandle>((_, ref) => {
-  const paneFlowElRef = useRef<HTMLDivElement>(null);
-  const paneFlowInstanceRef = useRef<unknown>(null);
-
-  useImperativeHandle(ref, () => ({
-    setPane: (index: number) => {
-      const instance = paneFlowInstanceRef.current as { setPane?: (index: number, direction?: string) => void };
-      if (instance && typeof instance.setPane === 'function') {
-        instance.setPane(index);
-      }
-    },
-    nextPane: () => {
-      const instance = paneFlowInstanceRef.current as { nextPane?: () => void };
-      if (instance && typeof instance.nextPane === 'function') {
-        instance.nextPane();
-      }
-    },
-    prevPane: () => {
-      const instance = paneFlowInstanceRef.current as { prevPane?: () => void };
-      if (instance && typeof instance.prevPane === 'function') {
-        instance.prevPane();
-      }
-    },
-    get currentPaneIndex() {
-      const instance = paneFlowInstanceRef.current as { currentPaneIndex?: number };
-      if (instance && typeof instance.currentPaneIndex === 'number') {
-        return instance.currentPaneIndex;
-      }
-      return 0;
-    }
-  }));
+export default function Testing() {
+  const paneFlowElRef = useRef(null);
+  const paneFlowInstanceRef = useRef(null);
 
   useEffect(() => {
     if (paneFlowElRef.current) {
-      console.log('Creating PaneFlow instance...');
       paneFlowInstanceRef.current = new PaneFlow({
         el: paneFlowElRef.current,
-        padding: "1cqw",
-        gap: "1cqw",
-        transitionDuration: 1000,
-        blockDelay: 50,
-        blockBorderRadius: "3cqw",
+        padding: "3.6cqw",
+        gap: "0cqw",
+        transitionDuration: 750,
+        blockDelay: 30,
+        blockBorderRadius: "1.5cqw",
         initialPaneIndex: 0,
-        autoplay: { enabled: false, interval: 3000 },
         panes: [
           {
             cols: 4,
@@ -120,28 +83,6 @@ const MyPaneFlowComplete = forwardRef<MyPaneFlowHandle>((_, ref) => {
                     transformOrigin: "center",
                     opacity: 1,
                     parallax: 2,
-                  },
-                  {
-                    el: ".paneflow-item-pyIScR",
-                    translateX: "-100cqw",
-                    translateY: "15.6cqw",
-                    translateZ: 0,
-                    rotate: 0,
-                    scale: 1,
-                    transformOrigin: "center",
-                    opacity: 1,
-                    parallax: 1,
-                  },
-                  {
-                    el: ".paneflow-item-mPA0mS",
-                    translateX: "-100cqw",
-                    translateY: "1.8cqw",
-                    translateZ: 0,
-                    rotate: 0,
-                    scale: 1,
-                    transformOrigin: "center",
-                    opacity: 1,
-                    parallax: 3,
                   },
                 ],
                 enterFrom: "right",
@@ -253,28 +194,6 @@ const MyPaneFlowComplete = forwardRef<MyPaneFlowHandle>((_, ref) => {
                     transformOrigin: "center",
                     opacity: 1,
                     parallax: 2,
-                  },
-                  {
-                    el: ".paneflow-item-pyIScR",
-                    translateX: "-100cqw",
-                    translateY: "15.6cqw",
-                    translateZ: 0,
-                    rotate: 0,
-                    scale: 1,
-                    transformOrigin: "center",
-                    opacity: 1,
-                    parallax: 1,
-                  },
-                  {
-                    el: ".paneflow-item-mPA0mS",
-                    translateX: "-100cqw",
-                    translateY: "1.8cqw",
-                    translateZ: 0,
-                    rotate: 0,
-                    scale: 1,
-                    transformOrigin: "center",
-                    opacity: 1,
-                    parallax: 3,
                   },
                 ],
                 enterFrom: "left",
@@ -693,38 +612,25 @@ const MyPaneFlowComplete = forwardRef<MyPaneFlowHandle>((_, ref) => {
           },
         ],
         intro: true,
+        mousewheelControl: { enabled: true, axis: "y" },
+        loop: false,
+        keyboardControl: { enabled: true },
       });
-      console.log('✅ PaneFlow instance created:', paneFlowInstanceRef.current);
-      console.log('Available methods:', Object.getOwnPropertyNames(paneFlowInstanceRef.current));
     }
     return () => {
-      const instance = paneFlowInstanceRef.current as { destroy?: () => void };
-      if (instance && typeof instance.destroy === 'function') {
-        instance.destroy();
+      if (paneFlowInstanceRef.current) {
+        paneFlowInstanceRef.current.destroy();
       }
     };
   }, []);
-
   return (
-   <div ref={paneFlowElRef} className="paneflow paneflow-amaranth-egret-191">
+    <div ref={paneFlowElRef} className="paneflow paneflow-amaranth-egret-191">
       <div className="paneflow-content">
-
         <div className="paneflow-block paneflow-block-GDwP51">
-          <div className="paneflow-text paneflow-item-pyIScR">
-            <div className="paneflow-text-container">
-              <div className="paneflow-text-content">AirPods Max</div>
-            </div>
-          </div>
           <div className="paneflow-image paneflow-item-QOO9NF">
             <img src="https://plus.unsplash.com/premium_photo-1661964071015-d97428970584?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG90ZWx8ZW58MHx8MHx8fDA%3D" />
           </div>
-          <div className="paneflow-text paneflow-item-mPA0mS">
-            <div className="paneflow-text-container">
-              <div className="paneflow-text-content">About Hotelna</div>
-            </div>
-          </div>
         </div>
-
         <div className="paneflow-block paneflow-block-MdKkwa">
           <div className="paneflow-text paneflow-item-6U1vXq">
             <div className="paneflow-text-container">
@@ -747,36 +653,31 @@ const MyPaneFlowComplete = forwardRef<MyPaneFlowHandle>((_, ref) => {
             </div>
           </div>
         </div>
-
-        <div className="div">
-                <div className="paneflow-block paneflow-block-X5ym2S">
-                  <div className="paneflow-text paneflow-item-rrHNvD">
-                    <div className="paneflow-text-container">
-                      <div className="paneflow-text-content">
-                        Hospitality Perfection
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="paneflow-block paneflow-block-zGDkry">
-                  <div className="paneflow-text paneflow-item-6bpSMj">
-                    <div className="paneflow-text-container">
-                      <div className="paneflow-text-content">
-                        Personally vetted,
-                        <br />
-                        Professionally approved.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="paneflow-block paneflow-block-ffc839">
-                  <div className="paneflow-image paneflow-item-850leX">
-                    <img src="https://plus.unsplash.com/premium_photo-1661929519129-7a76946c1d38?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                  </div>
-                </div>
+        <div className="paneflow-block paneflow-block-X5ym2S">
+          <div className="paneflow-text paneflow-item-rrHNvD">
+            <div className="paneflow-text-container">
+              <div className="paneflow-text-content">
+                Hospitality Perfection
+              </div>
+            </div>
+          </div>
         </div>
-
-
+        <div className="paneflow-block paneflow-block-zGDkry">
+          <div className="paneflow-text paneflow-item-6bpSMj">
+            <div className="paneflow-text-container">
+              <div className="paneflow-text-content">
+                Personally vetted,
+                <br />
+                Professionally approved.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="paneflow-block paneflow-block-ffc839">
+          <div className="paneflow-image paneflow-item-850leX">
+            <img src="https://plus.unsplash.com/premium_photo-1661929519129-7a76946c1d38?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+          </div>
+        </div>
         <div className="paneflow-block paneflow-block-N4w44o">
           <div className="paneflow-text paneflow-item-DCj6jr">
             <div className="paneflow-text-container">
@@ -788,7 +689,6 @@ const MyPaneFlowComplete = forwardRef<MyPaneFlowHandle>((_, ref) => {
             </div>
           </div>
         </div>
-
         <div className="paneflow-block paneflow-block-fShcXX">
           <div className="paneflow-text paneflow-item-DzAVYq">
             <div className="paneflow-text-container">
@@ -806,8 +706,6 @@ const MyPaneFlowComplete = forwardRef<MyPaneFlowHandle>((_, ref) => {
             <img src="https://plus.unsplash.com/premium_photo-1661929519129-7a76946c1d38?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
           </div>
         </div>
-
-        
         <div className="paneflow-block paneflow-block-0vV37D">
           <div className="paneflow-text paneflow-item-V4asSM">
             <div className="paneflow-text-container">
@@ -853,7 +751,9 @@ const MyPaneFlowComplete = forwardRef<MyPaneFlowHandle>((_, ref) => {
         <div className="paneflow-block paneflow-block-zOwZ9W">
           <div className="paneflow-text paneflow-item-MTYjcJ">
             <div className="paneflow-text-container">
-              <div className="paneflow-text-content">Our Services</div>
+              <div className="paneflow-text-content">
+                Hospitality Consultant
+              </div>
             </div>
           </div>
           <div className="paneflow-text paneflow-item-BKvJ9h">
@@ -922,8 +822,4 @@ const MyPaneFlowComplete = forwardRef<MyPaneFlowHandle>((_, ref) => {
       </div>
     </div>
   );
-});
-
-MyPaneFlowComplete.displayName = 'MyPaneFlowComplete';
-
-export default MyPaneFlowComplete;
+}

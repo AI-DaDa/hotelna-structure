@@ -191,7 +191,7 @@ export default function Loading({ onComplete }: LoadingProps) {
             />
 
             {/* Decorative dot after HOTELNA (after letter A) */}
-            <circle className="brand-stroke draw-line" cx="10100" cy="963.09" r="15" fill="none" stroke="#d5b15f" strokeWidth="8"/>
+            {/* <circle className="brand-stroke draw-line" cx="10100" cy="963.09" r="15" fill="none" stroke="#d5b15f" strokeWidth="8"/> */}
           </g>
 
           {/* Underline - should animate with brand strokes */}
