@@ -1,3 +1,4 @@
+// Updated to sync dependencies - v1.0.1
 export default function Services() {
   return (
     <section id="services" className="relative bg-[#000] py-24 overflow-hidden">
