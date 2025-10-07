@@ -1,8 +1,10 @@
 "use client"
 
+import { branding } from '@/lib/branding'
+
 export function Quote() {
   return (
-    <section className="w-full pb-24 px-4 b">
+    <section className="w-full pb-24 px-4">
       <div className="mx-auto max-w-4xl rounded-[40px] border border-white/20 p-2 shadow-sm">
         <div className="relative mx-auto h-[240px] sm:h-[280px] md:h-[320px] lg:h-[360px] max-w-full overflow-hidden rounded-[38px] border border-white/20 bg-primary p-2 shadow-sm">
           {/* Hotelna patterns background at 45 degrees */}
@@ -28,8 +30,12 @@ export function Quote() {
 
           <div className="relative z-20 flex items-center justify-center h-full">
             <div className="text-center px-4 sm:px-6 lg:px-8">
-              <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-3 sm:mb-4 md:mb-5 leading-tight max-w-6xl mx-auto"> My approach is grounded, strategic, and personalised — built on a proven track record of turning vision into measurable success. True Hospitality is not just about service, it&apos;s about creating moments that guests carry with them long after they&apos;ve checked out.</h2>
-              <p className="text-xs sm:text-sm md:text-base text-white max-w-xl mx-auto">- Solomon Khaddour, Founder & CEO of Hotelna</p>
+              <h2 className={`${branding.typography.heading.h3} font-bold text-white mb-3 sm:mb-4 md:mb-5 leading-tight max-w-6xl mx-auto`}>
+                My approach is grounded, strategic, and personalised — built on a proven track record of turning vision into measurable success. True Hospitality is not just about service, it&apos;s about creating moments that guests carry with them long after they&apos;ve checked out.
+              </h2>
+              <p className={`${branding.typography.body.base} text-white max-w-xl mx-auto`}>
+                - Solomon Khaddour, Founder & CEO of Hotelna
+              </p>
             </div>
                  {/* <a href="/docs/get-started">
                   <div className="group border-border bg-secondary/70 flex h-[64px] cursor-pointer items-center gap-2 rounded-full border p-[11px]">

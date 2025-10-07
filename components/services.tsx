@@ -1,40 +1,42 @@
-// Updated to sync dependencies - v1.0.2 - All TypeScript errors fixed
+// Updated to sync dependencies - v1.0.3 - Unified branding system
+import { branding } from '@/lib/branding'
+
 export default function Services() {
   return (
-    <section id="services" className="relative bg-[#000] py-24 overflow-hidden">
+    <section id="services" className={branding.components.section}>
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="container mx-auto px-6 relative">
+      <div className={branding.spacing.container}>
         {/* Section Badge */}
         <div className="text-center mb-6">
-          <span className="inline-block px-4 py-1.5 text-sm font-medium tracking-wider text-primary bg-primary/10 rounded-full border border-primary/20">
+          <span className={branding.components.badge}>
             SOLOMON KHADDOUR
           </span>
         </div>
 
         {/* Section Title */}
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-center mb-6 tracking-tight text-white">
+        <h2 className={`${branding.typography.heading.h1} font-bold text-center mb-6 tracking-tight text-white`}>
           <span className="text-primary">Hospitality</span> Consultant
         </h2>
 
-        <div className="max-w-5xl mx-auto mb-16 space-y-6 text-white">
-          <p className="text-lg md:text-xl leading-relaxed ">
+        <div className="max-w-5xl mx-auto mb-16 space-y-6">
+          <p className={branding.text.body('xl')}>
             With over two decades of leadership in the luxury hospitality sector, I am proud to launch my bespoke hospitality Hub consultancy, offering expert guidance to hoteliers, developers, investors, and operators across the UK and the World.
           </p>
 
-          <p className="text-base md:text-lg leading-relaxed ">
+          <p className={branding.text.body('lg')}>
             My career has been built within some of the capital&rsquo;s most prestigious five-star properties, including The Capital Hotel in Knightsbridge and the award-winning 11 Cadogan Gardens in Chelsea. I bring first-hand experience in operational transformation, strategic repositioning, revenue growth, and Michelin-level F&B development.
           </p>
 
-          <p className="text-base md:text-lg leading-relaxed ">
+          <p className={branding.text.body('lg')}>
             Swiss-educated at the renowned Les Roches Marbella, I combine a deep understanding of international hospitality standards with a distinctly London-centric commercial acumen. From overseeing major refurbishments and openings to securing top industry accolades and driving profitability, I offer tailored solutions that balance guest experience with bottom-line results.
           </p>
 
-          <p className="text-base md:text-lg leading-relaxed ">
+          <p className={branding.text.body('lg')}>
             Whether supporting independent boutique hotels or luxury branded properties, my consultancy focuses on:
           </p>
         </div>
@@ -54,10 +56,10 @@ export default function Services() {
               </div>
             </div>
 
-            <h3 className="relative text-xl md:text-2xl font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300">
+            <h3 className={`${branding.typography.heading.h4} font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300`}>
               Operational Audits & Efficiency Improvements
             </h3>
-            <p className="relative text-gray-400 text-sm leading-relaxed">
+            <p className={branding.text.muted()}>
               Comprehensive analysis of your operations to identify optimization opportunities and enhance service delivery.
             </p>
 
@@ -77,10 +79,10 @@ export default function Services() {
               </div>
             </div>
 
-            <h3 className="relative text-xl md:text-2xl font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300">
+            <h3 className={`${branding.typography.heading.h4} font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300`}>
               F&B Strategy & Concept Development
             </h3>
-            <p className="relative text-gray-400 text-sm leading-relaxed">
+            <p className={branding.text.muted()}>
               Creating exceptional dining experiences from Michelin-level concepts to profitable operations.
             </p>
 
@@ -100,10 +102,10 @@ export default function Services() {
               </div>
             </div>
 
-            <h3 className="relative text-xl md:text-2xl font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300">
+            <h3 className={`${branding.typography.heading.h4} font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300`}>
               Brand Positioning & Market Competitiveness
             </h3>
-            <p className="relative text-gray-400 text-sm leading-relaxed">
+            <p className={branding.text.muted()}>
               Strategic positioning to differentiate your property in the luxury hospitality market.
             </p>
 
@@ -123,10 +125,10 @@ export default function Services() {
               </div>
             </div>
 
-            <h3 className="relative text-xl md:text-2xl font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300">
+            <h3 className={`${branding.typography.heading.h4} font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300`}>
               Pre-Opening Planning & Team Development
             </h3>
-            <p className="relative text-gray-400 text-sm leading-relaxed">
+            <p className={branding.text.muted()}>
               Expert guidance from concept to launch, building high-performing teams for success.
             </p>
 
@@ -146,10 +148,10 @@ export default function Services() {
               </div>
             </div>
 
-            <h3 className="relative text-xl md:text-2xl font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300">
+            <h3 className={`${branding.typography.heading.h4} font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300`}>
               Revenue Management & Profitability Optimisation
             </h3>
-            <p className="relative text-gray-400 text-sm leading-relaxed">
+            <p className={branding.text.muted()}>
               Data-driven strategies to maximize revenue while maintaining exceptional guest satisfaction.
             </p>
 
