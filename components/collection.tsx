@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card } from "@/components/ui/card"
 import { Bed, Utensils, Wifi, Sparkles } from "lucide-react"
+import { branding } from "@/lib/branding"
 
 const galleryData = {
   rooms: {
@@ -117,7 +118,6 @@ export function Collections() {
                 whiteSpace: 'nowrap',
                 fontSize: '9cqw',
                 textAlign: 'center',
-                color: 'rgba(255, 255, 255, 1)',
                 fontFamily: 'Dubai',
                 fontWeight: 'bold',
                 fontStyle: 'normal',
@@ -127,12 +127,12 @@ export function Collections() {
                 borderRadius: '0',
               }}
             >
-              <div className="paneflow-text-content">
+              <div className={`paneflow-text-content text-foreground ${branding.typography.display.md}`}>
                 Collection
               </div>
             </div>
           </div>
-          <p className="mt-5 relative z-10 text-center text-lg text-zinc-500">
+          <p className={`mt-5 relative z-10 text-center ${branding.text.muted('lg')}`}>
             Experience Unparalleled Luxury
           </p>
         </div>
@@ -149,7 +149,7 @@ export function Collections() {
                     key={key}
                     value={key}
                     onClick={() => setSelectedImage(0)}
-                    className="flex items-center gap-2 bg-card border border-border hover:border-[#d5b15f] data-[state=active]:border-[#d5b15f] data-[state=active]:bg-card data-[state=active]:text-[#d5b15f] transition-all duration-300 py-4 px-6 rounded"
+                    className="flex items-center gap-2 bg-card border border-border hover:border-primary data-[state=active]:border-primary data-[state=active]:bg-card data-[state=active]:text-primary transition-all duration-300 py-4 px-6 rounded"
                   >
                     <Icon className="w-4 h-4" />
                     <span className="font-medium">{data.title}</span>
@@ -162,7 +162,7 @@ export function Collections() {
               <TabsContent key={key} value={key} className="mt-0">
                 <div className="grid md:grid-cols-2 gap-6">
                   {/* Main Image */}
-                  <Card className="overflow-hidden border-[#d5b15f]/20 bg-card">
+                  <Card className="overflow-hidden border-primary/20 bg-card">
                     <div className="relative aspect-[4/3]">
                       <Image
                         src={data.images[selectedImage].url || "/placeholder.svg"}
@@ -170,10 +170,10 @@ export function Collections() {
                         fill
                         className="object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-white/60 dark:from-black/60 to-transparent" />
                       <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <h3 className="text-2xl font-serif mb-2 text-[#d5b15f]">{data.images[selectedImage].title}</h3>
-                        <p className="text-sm text-gray-200">{data.images[selectedImage].description}</p>
+                        <h3 className={`${branding.typography.heading.h3} font-serif mb-2 text-primary`}>{data.images[selectedImage].title}</h3>
+                        <p className={branding.text.body('sm') + ' text-gray-200'}>{data.images[selectedImage].description}</p>
                       </div>
                     </div>
                   </Card>
@@ -186,8 +186,8 @@ export function Collections() {
                         onClick={() => setSelectedImage(index)}
                         className={`overflow-hidden cursor-pointer transition-all duration-300 border-2 ${
                           selectedImage === index
-                            ? "border-[#d5b15f] shadow-lg shadow-[#d5b15f]/20"
-                            : "border-border hover:border-[#d5b15f]/50"
+                            ? "border-primary shadow-lg shadow-primary/20"
+                            : "border-border hover:border-primary/50"
                         } bg-card`}
                       >
                         <div className="flex gap-4 p-4">
@@ -202,7 +202,7 @@ export function Collections() {
                           <div className="flex flex-col justify-center">
                             <h4
                               className={`font-medium mb-1 ${
-                                selectedImage === index ? "text-[#d5b15f]" : "text-foreground"
+                                selectedImage === index ? "text-primary" : "text-foreground"
                               }`}
                             >
                               {image.title}
@@ -220,19 +220,19 @@ export function Collections() {
         </div>
 
         {/* Overlay with "To be launched soon" message */}
-        <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+        <div className="absolute inset-0 flex items-center justify-center bg-background/60 backdrop-blur-sm">
           <div className="text-center">
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h3 className={`${branding.typography.heading.h2} font-bold text-foreground mb-4`}>
               To be launched soon
             </h3>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#d5b15f]/60 via-[#d5b15f] to-[#d5b15f]/60 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary/60 via-primary to-primary/60 mx-auto rounded-full"></div>
           </div>
         </div>
       </div>
 
         {/* Decorative Element */}
         <div className="mt-16 text-center">
-          <div className="inline-block w-24 h-px bg-gradient-to-r from-transparent via-[#d5b15f] to-transparent" />
+          <div className="inline-block w-24 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
         </div>
       </div>
     </section>

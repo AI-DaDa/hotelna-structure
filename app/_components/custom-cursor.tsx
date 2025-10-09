@@ -58,7 +58,7 @@ const CustomCursor = () => {
       {/* Main cursor - Small dot */}
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-1.5 h-1.5 bg-[#d5b15f] rounded-full pointer-events-none z-[10001] mix-blend-difference"
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-primary rounded-full pointer-events-none z-[10001] mix-blend-difference"
         style={{
           transform: 'translate3d(0, 0, 0)',
         }}
@@ -73,7 +73,7 @@ const CustomCursor = () => {
         }}
       >
         {/* Circle background */}
-        <div className="w-full h-full rounded-full bg-[#d5b15f]/10 border border-[#d5b15f]/30 backdrop-blur-sm flex items-center justify-center">
+        <div className="w-full h-full rounded-full bg-primary/10 border border-primary/30 backdrop-blur-sm flex items-center justify-center">
           {/* Hotelna H Logo inside circle */}
   <svg
             viewBox="0 0 3280.39 2261.28"

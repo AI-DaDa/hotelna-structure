@@ -11,6 +11,7 @@ import {
   useVelocity,
   useAnimationFrame,
 } from "framer-motion"
+import { branding } from "@/lib/branding"
 
 // Utility function to wrap values
 const wrap = (min: number, max: number, v: number) => {
@@ -87,13 +88,13 @@ const ParallaxLogos: React.FC<ParallaxLogosProps> = ({
             >
               <div className="relative">
                 {/* Luxury brand logo placeholder */}
-                <div className="w-32 h-16 bg-gradient-to-r from-[#d5b15f]/20 to-[#d5b15f]/10 rounded-lg border border-[#d5b15f]/30 flex items-center justify-center group-hover:border-[#d5b15f]/60 transition-all duration-300">
-                  <span className="text-[#d5b15f] font-bold text-xl group-hover:text-white transition-colors duration-300">
+                <div className="w-32 h-16 bg-gradient-to-r from-primary/20 to-primary/10 rounded-lg border border-primary/30 flex items-center justify-center group-hover:border-primary/60 transition-all duration-300">
+                  <span className="text-primary font-bold text-xl group-hover:text-white transition-colors duration-300">
                     {partner.logo}
                   </span>
                 </div>
                 {/* Glow effect on hover */}
-                <div className="absolute inset-0 bg-[#d5b15f]/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10" />
+                <div className="absolute inset-0 bg-primary/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10" />
               </div>
             </motion.div>
           ))
@@ -110,12 +111,12 @@ export function LogoCarousel() {
       {/* FAQ-Style Title */}
       <div className="text-center mb-12 sm:mb-16 lg:mb-20">
         <div className="inline-block">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent leading-tight">
+          <h2 className={`${branding.typography.display.lg} font-bold mb-4 sm:mb-6 bg-gradient-to-r from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent leading-tight`}>
             Our Trusted Partners
           </h2>
-          <div className="w-24 h-1 bg-[#d5b15f] mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
         </div>
-        <p className="text-lg sm:text-xl text-white/60 max-w-3xl mx-auto mt-6 sm:mt-8 leading-relaxed px-4 sm:px-0">
+        <p className={`${branding.text.body('xl')} text-foreground/60 max-w-3xl mx-auto mt-6 sm:mt-8 leading-relaxed px-4 sm:px-0`}>
           Collaborating with luxury hospitality leaders and premium brands worldwide to deliver exceptional experiences.
         </p>
       </div>
@@ -131,13 +132,13 @@ export function LogoCarousel() {
 
       {/* Professional note */}
       <div className="text-center mt-12 sm:mt-16">
-        <div className="inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl bg-gradient-to-r from-[#d5b15f]/10 to-yellow-400/10 border border-[#d5b15f]/30 shadow-lg">
-          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-[#d5b15f] to-yellow-400 flex items-center justify-center">
-            <span className="text-white font-bold text-sm">Logo</span>
+        <div className="inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/30 shadow-lg">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-primary to-primary/80 flex items-center justify-center">
+            <span className="text-primary-foreground font-bold text-sm">Logo</span>
           </div>
           <div className="text-left">
-            <p className="text-base sm:text-lg font-semibold text-white">Luxury Network</p>
-            <p className="text-xs sm:text-sm text-gray-300">Connected to the world&apos;s finest hospitality brands</p>
+            <p className="text-base sm:text-lg font-semibold text-foreground">Luxury Network</p>
+            <p className="text-xs sm:text-sm text-foreground/60">Connected to the world&apos;s finest hospitality brands</p>
           </div>
         </div>
       </div>

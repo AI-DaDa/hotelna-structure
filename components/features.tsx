@@ -11,6 +11,7 @@ import { motion, useInView } from "framer-motion"
 import { Suspense, useEffect, useRef, useState } from "react"
 import { geist } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import { branding } from "@/lib/branding"
 
 export default function Features() {
   const ref = useRef(null)
@@ -22,14 +23,22 @@ export default function Features() {
   // const [isFeature4Hovering, setIsFeature4Hovering] = useState(false)
   const [inputValue, setInputValue] = useState("")
 
-  const [baseColor, setBaseColor] = useState<[number, number, number]>([0.835, 0.694, 0.373]) // #d5b15f in RGB normalized
-  const [glowColor, setGlowColor] = useState<[number, number, number]>([0.835, 0.694, 0.373]) // #d5b15f in RGB normalized
+  // Theme-responsive RGB colors: Gold for dark mode, Blue for light mode
+  const [baseColor, setBaseColor] = useState<[number, number, number]>([0.835, 0.694, 0.373]) // Gold RGB normalized
+  const [glowColor, setGlowColor] = useState<[number, number, number]>([0.835, 0.694, 0.373]) // Gold RGB normalized
 
   const [dark, setDark] = useState<number>(theme === "dark" ? 1 : 0)
 
   useEffect(() => {
-    setBaseColor([0.835, 0.694, 0.373]) // #d5b15f
-    setGlowColor([0.835, 0.694, 0.373]) // #d5b15f
+    // Blue (#2F4763) RGB: 47, 71, 99 → Normalized: 0.184, 0.278, 0.388
+    // Gold (#D5B15F) RGB: 213, 177, 95 → Normalized: 0.835, 0.694, 0.373
+    if (theme === "dark") {
+      setBaseColor([0.835, 0.694, 0.373]) // Gold for dark mode
+      setGlowColor([0.835, 0.694, 0.373])
+    } else {
+      setBaseColor([0.184, 0.278, 0.388]) // Blue for light mode
+      setGlowColor([0.184, 0.278, 0.388])
+    }
     setDark(theme === "dark" ? 1 : 0)
   }, [theme])
 
@@ -53,7 +62,8 @@ export default function Features() {
       >
         <h2
           className={cn(
-            "via-foreground mb-8 bg-gradient-to-b from-zinc-800 to-zinc-700 bg-clip-text text-center text-4xl font-semibold tracking-tighter text-transparent md:text-[54px] md:leading-[60px]",
+            branding.typography.display.lg,
+            "mb-8 font-semibold tracking-tighter text-center bg-gradient-to-b from-zinc-800 to-zinc-700 bg-clip-text text-transparent",
             geist.className,
           )}
         >
@@ -292,7 +302,7 @@ export default function Features() {
                         scrambleSpeed={70}
                         maxIterations={20}
                         useOriginalCharsOnly={false}
-                        className="cursor-pointer bg-gradient-to-t from-[#d5b15f] to-[#d5b15f] bg-clip-text text-transparent"
+                        className="cursor-pointer bg-gradient-to-t from-primary to-primary bg-clip-text text-transparent"
                         isHovering={isHovering}
                         setIsHovering={setIsHovering}
                         characters="abcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;':\,./<>?"
@@ -368,7 +378,7 @@ export default function Features() {
                               <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"></path>
                             </svg>
                           </button>
-                          <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#d5b15f] hover:bg-[#d5b15f]/90 transition-colors text-white font-medium">
+                          <button className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary hover:bg-primary/90 transition-colors text-primary-foreground font-medium">
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"

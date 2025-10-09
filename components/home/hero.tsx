@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Swiper from 'swiper';
 import { Navigation, Pagination, Autoplay, Scrollbar } from 'swiper/modules';
+import { branding } from "@/lib/branding"
 // import Swiper and modules styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -119,12 +120,12 @@ export default function Hero() {
           } as React.CSSProperties}></div>
 
           {/* Add Navigation */}
-          <div className="swiper-button-prev !text-[#d5b15f] !z-20 !left-8"></div>
-          <div className="swiper-button-next !text-[#d5b15f] !z-20 !right-8"></div>
+          <div className="swiper-button-prev !text-primary !z-20 !left-8"></div>
+          <div className="swiper-button-next !text-primary !z-20 !right-8"></div>
 
           {/* Add Scrollbar at the bottom */}
           <div className="swiper-scrollbar !bg-white/20 !bottom-20 !z-20">
-            <div className="swiper-scrollbar-drag !bg-[#d5b15f]"></div>
+            <div className="swiper-scrollbar-drag !bg-primary"></div>
           </div>
         </div>
 
@@ -138,9 +139,9 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="mb-8"
             >
-              <h1 id="main-title" className="text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl drop-shadow-2xl">
+              <h1 id="main-title" className={`${branding.typography.display.xl} font-bold tracking-tight text-white drop-shadow-2xl`}>
                 Your <strong>Hospitality</strong>
-                 <em className="italic text-[#d5b15f]">Hub</em>
+                 <em className="italic text-primary">Hub</em>
               </h1>
             </motion.div>
 
@@ -149,27 +150,26 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="mx-auto mb-12 max-w-2xl text-lg text-white/90 drop-shadow-lg"
+              className={`mx-auto mb-12 max-w-2xl ${branding.text.body('xl')} text-white/90 drop-shadow-lg`}
             >
               Bespoke, visionary hospitality built with global expertise. Plan, design, and elevate your next hotel with ease.
             </motion.p>
 
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col items-center gap-6"
             >
-              {/* Get started button */}
               <div className="flex items-center justify-center">
                 <a href="#features">
-                  <div className="group cursor-pointer border border-[#d5b15f]/30 bg-black/20 backdrop-blur-sm gap-2 h-[60px] flex items-center p-[10px] rounded-full hover:bg-[#d5b15f]/20 transition-all">
-                    <div className="border border-[#d5b15f] bg-[#d5b15f] h-[40px] rounded-full flex items-center justify-center text-black">
+                  <div className="group cursor-pointer border border-primary/30 bg-black/20 backdrop-blur-sm gap-2 h-[60px] flex items-center p-[10px] rounded-full hover:bg-primary/20 transition-all">
+                    <div className="border border-primary bg-primary h-[40px] rounded-full flex items-center justify-center text-black">
                       <p className="font-medium tracking-tight mr-3 ml-3 flex items-center gap-2 justify-center text-base">
                         Get started
                       </p>
                     </div>
-                    <div className="text-[#d5b15f] group-hover:ml-4 ease-in-out transition-all size-[24px] flex items-center justify-center rounded-full border-2 border-[#d5b15f]/50">
+                    <div className="text-primary group-hover:ml-4 ease-in-out transition-all size-[24px] flex items-center justify-center rounded-full border-2 border-primary/50">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="14"
@@ -189,7 +189,7 @@ export default function Hero() {
                   </div>
                 </a>
               </div>
-            </motion.div>
+            </motion.div> */}
 
           </div>
 

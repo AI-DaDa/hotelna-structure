@@ -3,7 +3,7 @@ import { branding } from '@/lib/branding'
 
 export default function Services() {
   return (
-    <section id="services" className={branding.components.section}>
+    <section id="services" className={`${branding.components.section} bg-background`}>
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
@@ -19,7 +19,7 @@ export default function Services() {
         </div>
 
         {/* Section Title */}
-        <h2 className={`${branding.typography.heading.h1} font-bold text-center mb-6 tracking-tight text-white`}>
+        <h2 className={`${branding.typography.heading.h1} font-bold text-center mb-6 tracking-tight text-foreground`}>
           <span className="text-primary">Hospitality</span> Consultant
         </h2>
 
@@ -56,7 +56,7 @@ export default function Services() {
               </div>
             </div>
 
-            <h3 className={`${branding.typography.heading.h4} font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300`}>
+            <h3 className={`${branding.typography.heading.h4} font-bold mb-3 text-foreground group-hover:text-primary transition-colors duration-300`}>
               Operational Audits & Efficiency Improvements
             </h3>
             <p className={branding.text.muted()}>
@@ -79,7 +79,7 @@ export default function Services() {
               </div>
             </div>
 
-            <h3 className={`${branding.typography.heading.h4} font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300`}>
+            <h3 className={`${branding.typography.heading.h4} font-bold mb-3 text-foreground group-hover:text-primary transition-colors duration-300`}>
               F&B Strategy & Concept Development
             </h3>
             <p className={branding.text.muted()}>
@@ -102,7 +102,7 @@ export default function Services() {
               </div>
             </div>
 
-            <h3 className={`${branding.typography.heading.h4} font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300`}>
+            <h3 className={`${branding.typography.heading.h4} font-bold mb-3 text-foreground group-hover:text-primary transition-colors duration-300`}>
               Brand Positioning & Market Competitiveness
             </h3>
             <p className={branding.text.muted()}>
@@ -125,7 +125,7 @@ export default function Services() {
               </div>
             </div>
 
-            <h3 className={`${branding.typography.heading.h4} font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300`}>
+            <h3 className={`${branding.typography.heading.h4} font-bold mb-3 text-foreground group-hover:text-primary transition-colors duration-300`}>
               Pre-Opening Planning & Team Development
             </h3>
             <p className={branding.text.muted()}>
@@ -148,7 +148,7 @@ export default function Services() {
               </div>
             </div>
 
-            <h3 className={`${branding.typography.heading.h4} font-bold mb-3 text-white group-hover:text-primary transition-colors duration-300`}>
+            <h3 className={`${branding.typography.heading.h4} font-bold mb-3 text-foreground group-hover:text-primary transition-colors duration-300`}>
               Revenue Management & Profitability Optimisation
             </h3>
             <p className={branding.text.muted()}>

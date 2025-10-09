@@ -155,9 +155,9 @@ export function FAQSection() {
             >
               Frequently Asked Questions
             </h2>
-            <div className="w-24 h-1 bg-[#d5b15f] mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
           </div>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mt-6 sm:mt-8 leading-relaxed px-4 sm:px-0">
+          <p className="text-lg sm:text-xl text-foreground/60 max-w-3xl mx-auto mt-6 sm:mt-8 leading-relaxed px-4 sm:px-0">
             Everything you need to know about your luxury experience at Hotelna.
             Our commitment to excellence extends to every detail of your stay.
           </p>
@@ -172,7 +172,7 @@ export function FAQSection() {
               <motion.div
                 key={index}
                 ref={(el) => addToRefs(el, index)}
-                className="group relative bg-gradient-to-br rounded-2xl border border-[#d5b15f]/20 hover:border-[#d5b15f]/40 transition-all duration-500 cursor-pointer overflow-hidden backdrop-blur-xl"
+                className="group relative bg-gradient-to-br rounded-2xl border border-primary/20 hover:border-primary/40 transition-all duration-500 cursor-pointer overflow-hidden backdrop-blur-xl"
                 style={{
                   boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
                 }}
@@ -198,13 +198,13 @@ export function FAQSection() {
                   <div className="flex items-start justify-between gap-4 sm:gap-6">
                     <div className="flex items-start gap-5 flex-1">
                       {/* Icon */}
-                      <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-[#d5b15f] flex items-center justify-center shadow-lg transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                      <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-primary flex items-center justify-center shadow-lg transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
                         <IconComponent className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                       </div>
 
                       {/* Question */}
                       <div className="flex-1">
-                        <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-white leading-tight group-hover:text-[#d5b15f] transition-colors duration-300">
+                        <h3 className="text-lg sm:text-xl lg:text-2xl font-semibold text-foreground leading-tight group-hover:text-primary transition-colors duration-300">
                           {faq.question}
                         </h3>
                       </div>
@@ -218,12 +218,12 @@ export function FAQSection() {
                         backgroundColor: openItems.includes(index) ? 'rgba(213, 177, 95, 0.2)' : 'rgba(213, 177, 95, 0.1)'
                       }}
                       transition={{ duration: 0.4, ease: "easeInOut" }}
-                      className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl border border-[#d5b15f]/30 flex items-center justify-center group-hover:border-[#d5b15f]/50 transition-colors duration-300"
+                      className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl border border-primary/30 flex items-center justify-center group-hover:border-primary/50 transition-colors duration-300"
                     >
                       {openItems.includes(index) ? (
-                        <Minus className="w-5 h-5 sm:w-6 sm:h-6 text-[#d5b15f]" />
+                        <Minus className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                       ) : (
-                        <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-[#d5b15f]" />
+                        <Plus className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
                       )}
                     </motion.div>
                   </div>
@@ -243,8 +243,8 @@ export function FAQSection() {
                         }}
                       >
                         <div className="pl-16 sm:pl-20 pr-4">
-                          <div className="w-full h-px bg-gradient-to-r from-[#d5b15f]/30 via-[#d5b15f]/10 to-transparent mb-4 sm:mb-6"></div>
-                          <p className="text-gray-300 leading-relaxed text-base sm:text-lg font-medium">
+                          <div className="w-full h-px bg-gradient-to-r from-primary/30 via-primary/10 to-transparent mb-4 sm:mb-6"></div>
+                          <p className="text-foreground/80 leading-relaxed text-base sm:text-lg font-medium">
                             {faq.answer}
                           </p>
                         </div>
@@ -259,13 +259,13 @@ export function FAQSection() {
 
           {/* Professional CTA Section */}
           <div className="text-center mt-12 sm:mt-16">
-            <div className="inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl bg-gradient-to-r from-[#d5b15f]/10 to-yellow-400/10 border border-[#d5b15f]/30 shadow-lg">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-[#d5b15f] to-yellow-400 flex items-center justify-center">
+            <div className="inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-8 py-3 sm:py-4 rounded-2xl bg-gradient-to-r from-primary/10 to-yellow-400/10 border border-primary/30 shadow-lg">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-r from-primary to-yellow-400 flex items-center justify-center">
                 <Star className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
               </div>
               <div className="text-left">
-                <p className="text-base sm:text-lg font-semibold text-white">Still have questions?</p>
-                <p className="text-xs sm:text-sm text-gray-300">Our concierge team is available 24/7 to assist you</p>
+                <p className="text-base sm:text-lg font-semibold text-foreground">Still have questions?</p>
+                <p className="text-xs sm:text-sm text-foreground/60">Our concierge team is available 24/7 to assist you</p>
               </div>
             </div>
           </div>

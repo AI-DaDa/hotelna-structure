@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { useState, useEffect, useRef } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { branding } from "@/lib/branding"
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger)
@@ -165,7 +166,7 @@ export function Contact() {
         >
               <div className="inline-block">
                 <motion.h2
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 text-white leading-tight"
+                  className={`${branding.typography.display.lg} font-bold text-foreground leading-tight mb-4 sm:mb-6`}
                   initial={{ opacity: 0, y: 30, rotateX: -15 }}
                   animate={{ opacity: 1, y: 0, rotateX: 0 }}
                   transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -173,14 +174,14 @@ export function Contact() {
                   Contact
                 </motion.h2>
                 <motion.div
-                  className="w-24 h-1 bg-[#d5b15f] mx-auto rounded-full"
+                  className="w-24 h-1 bg-primary mx-auto rounded-full"
                   initial={{ width: 0, opacity: 0 }}
                   animate={{ width: 96, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 ></motion.div>
               </div>
               <motion.p
-                className="text-lg sm:text-xl text-white/60 max-w-3xl mx-auto mt-6 sm:mt-8 leading-relaxed px-4 sm:px-0"
+                className={`${branding.text.body('xl')} text-foreground/60 max-w-3xl mx-auto mt-6 sm:mt-8 leading-relaxed px-4 sm:px-0`}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
@@ -203,15 +204,15 @@ export function Contact() {
 
               {/* World Clocks */}
               <motion.div
-                className="relative rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
+                className="relative rounded-3xl border border-border bg-gradient-to-b from-foreground/5 to-foreground/[0.02] p-10 backdrop-blur-sm"
                 initial={{ opacity: 0, x: -100, rotateY: -15, scale: 0.8 }}
                 animate={{ opacity: 1, x: 0, rotateY: 0, scale: 1 }}
                 transition={{ duration: 1, delay: 0.6, ease: "easeOut", type: "spring", stiffness: 100 }}
                 whileHover={{ scale: 1.02, rotateY: 2, transition: { duration: 0.3 } }}
               >
-              <div className="absolute -top-5 -left-5 -z-10 h-40 w-40 rounded-full bg-gradient-to-b from-[#d5b15f]/10 to-transparent blur-md"></div>
+              <div className="absolute -top-5 -left-5 -z-10 h-40 w-40 rounded-full bg-gradient-to-b from-primary/10 to-transparent blur-md"></div>
               <motion.h3
-                className="text-2xl font-bold text-white mb-6"
+                className="text-2xl font-bold text-foreground mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
@@ -225,75 +226,75 @@ export function Contact() {
                   transition={{ duration: 0.6, delay: 1 }}
                 >
                   <motion.div
-                    className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
+                    className="rounded-3xl border border-border bg-gradient-to-b from-foreground/5 to-foreground/[0.02] p-6 backdrop-blur-sm"
                     initial={{ opacity: 0, y: 50, rotateX: -10 }}
                     animate={{ opacity: 1, y: 0, rotateX: 0 }}
                     transition={{ duration: 0.6, delay: 1.1, type: "spring" }}
                     whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.2 } }}
                   >
                   <div className="flex items-center justify-between mb-2">
-                    <h4 className="text-white font-semibold">New York</h4>
-                    <span className="text-xs text-white/60">EST</span>
+                    <h4 className="text-foreground font-semibold">New York</h4>
+                    <span className="text-xs text-foreground/60">EST</span>
                   </div>
-                  <p className="text-[#d5b15f] font-mono text-lg">{mounted ? formatTime(currentTime.newYork) : '--:--:-- --'}</p>
-                  <p className="text-white/60 text-sm mt-1">9:00 AM - 6:00 PM</p>
+                  <p className="text-primary font-mono text-lg">{mounted ? formatTime(currentTime.newYork) : '--:--:-- --'}</p>
+                  <p className="text-foreground/60 text-sm mt-1">9:00 AM - 6:00 PM</p>
                   </motion.div>
                   <motion.div
-                    className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
+                    className="rounded-3xl border border-border bg-gradient-to-b from-foreground/5 to-foreground/[0.02] p-6 backdrop-blur-sm"
                     initial={{ opacity: 0, y: 50, rotateX: -10 }}
                     animate={{ opacity: 1, y: 0, rotateX: 0 }}
                     transition={{ duration: 0.6, delay: 1.2, type: "spring" }}
                     whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.2 } }}
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-white font-semibold">London</h4>
-                      <span className="text-xs text-white/60">GMT</span>
+                      <h4 className="text-foreground font-semibold">London</h4>
+                      <span className="text-xs text-foreground/60">GMT</span>
                     </div>
-                    <p className="text-[#d5b15f] font-mono text-lg">{mounted ? formatTime(currentTime.london) : '--:--:-- --'}</p>
-                    <p className="text-white/60 text-sm mt-1">9:00 AM - 5:00 PM</p>
+                    <p className="text-primary font-mono text-lg">{mounted ? formatTime(currentTime.london) : '--:--:-- --'}</p>
+                    <p className="text-foreground/60 text-sm mt-1">9:00 AM - 5:00 PM</p>
                   </motion.div>
                   <motion.div
-                    className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
+                    className="rounded-3xl border border-border bg-gradient-to-b from-foreground/5 to-foreground/[0.02] p-6 backdrop-blur-sm"
                     initial={{ opacity: 0, y: 50, rotateX: -10 }}
                     animate={{ opacity: 1, y: 0, rotateX: 0 }}
                     transition={{ duration: 0.6, delay: 1.3, type: "spring" }}
                     whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.2 } }}
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-white font-semibold">Dubai</h4>
-                      <span className="text-xs text-white/60">GST</span>
+                      <h4 className="text-foreground font-semibold">Dubai</h4>
+                      <span className="text-xs text-foreground/60">GST</span>
                     </div>
-                    <p className="text-[#d5b15f] font-mono text-lg">{mounted ? formatTime(currentTime.dubai) : '--:--:-- --'}</p>
-                    <p className="text-white/60 text-sm mt-1">8:00 AM - 4:00 PM</p>
+                    <p className="text-primary font-mono text-lg">{mounted ? formatTime(currentTime.dubai) : '--:--:-- --'}</p>
+                    <p className="text-foreground/60 text-sm mt-1">8:00 AM - 4:00 PM</p>
                   </motion.div>
                   <motion.div
-                    className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
+                    className="rounded-3xl border border-border bg-gradient-to-b from-foreground/5 to-foreground/[0.02] p-6 backdrop-blur-sm"
                     initial={{ opacity: 0, y: 50, rotateX: -10 }}
                     animate={{ opacity: 1, y: 0, rotateX: 0 }}
                     transition={{ duration: 0.6, delay: 1.4, type: "spring" }}
                     whileHover={{ scale: 1.05, y: -5, transition: { duration: 0.2 } }}
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-white font-semibold">Tokyo</h4>
-                      <span className="text-xs text-white/60">JST</span>
+                      <h4 className="text-foreground font-semibold">Tokyo</h4>
+                      <span className="text-xs text-foreground/60">JST</span>
                     </div>
-                    <p className="text-[#d5b15f] font-mono text-lg">{mounted ? formatTime(currentTime.tokyo) : '--:--:-- --'}</p>
-                    <p className="text-white/60 text-sm mt-1">9:00 AM - 6:00 PM</p>
+                    <p className="text-primary font-mono text-lg">{mounted ? formatTime(currentTime.tokyo) : '--:--:-- --'}</p>
+                    <p className="text-foreground/60 text-sm mt-1">9:00 AM - 6:00 PM</p>
                   </motion.div>
                 </motion.div>
             </motion.div>
 
               {/* Contact Information */}
               <motion.div
-                className="relative rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
+                className="relative rounded-3xl border border-border bg-gradient-to-b from-foreground/5 to-foreground/[0.02] p-10 backdrop-blur-sm"
                 initial={{ opacity: 0, x: -100, rotateY: -15, scale: 0.8 }}
                 animate={{ opacity: 1, x: 0, rotateY: 0, scale: 1 }}
                 transition={{ duration: 1, delay: 0.8, ease: "easeOut", type: "spring", stiffness: 100 }}
                 whileHover={{ scale: 1.02, rotateY: 2, transition: { duration: 0.3 } }}
               >
-              <div className="absolute -top-5 -left-5 -z-10 h-40 w-40 rounded-full bg-gradient-to-b from-[#d5b15f]/10 to-transparent blur-md"></div>
+              <div className="absolute -top-5 -left-5 -z-10 h-40 w-40 rounded-full bg-gradient-to-b from-primary/10 to-transparent blur-md"></div>
               <motion.h3
-                className="text-2xl font-bold text-white mb-6"
+                className="text-2xl font-bold text-foreground mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 1 }}
@@ -314,14 +315,14 @@ export function Contact() {
                   whileHover={{ x: 5, transition: { duration: 0.2 } }}
                 >
                   <motion.div
-                    className="w-5 h-5 bg-[#d5b15f] rounded-full flex-shrink-0"
+                    className="w-5 h-5 bg-primary rounded-full flex-shrink-0"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.3, delay: 1.4, type: "spring" }}
                   ></motion.div>
                   <div>
-                    <p className="text-white/80 text-sm">Email</p>
-                    <p className="text-white font-medium">sk@hotelna.co.uk</p>
+                    <p className="text-foreground/80 text-sm">Email</p>
+                    <p className="text-foreground font-medium">sk@hotelna.co.uk</p>
                   </div>
                 </motion.div>
                 <motion.div
@@ -332,14 +333,14 @@ export function Contact() {
                   whileHover={{ x: 5, transition: { duration: 0.2 } }}
                 >
                   <motion.div
-                    className="w-5 h-5 bg-[#d5b15f] rounded-full flex-shrink-0"
+                    className="w-5 h-5 bg-primary rounded-full flex-shrink-0"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.3, delay: 1.5, type: "spring" }}
                   ></motion.div>
                   <div>
-                    <p className="text-white/80 text-sm">Website</p>
-                    <p className="text-white font-medium">hotelna.co.uk</p>
+                    <p className="text-foreground/80 text-sm">Website</p>
+                    <p className="text-foreground font-medium">hotelna.co.uk</p>
                   </div>
                 </motion.div>
                 <motion.div
@@ -350,14 +351,14 @@ export function Contact() {
                   whileHover={{ x: 5, transition: { duration: 0.2 } }}
                 >
                   <motion.div
-                    className="w-5 h-5 bg-[#d5b15f] rounded-full flex-shrink-0"
+                    className="w-5 h-5 bg-primary rounded-full flex-shrink-0"
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ duration: 0.3, delay: 1.6, type: "spring" }}
                   ></motion.div>
                   <div>
-                    <p className="text-white/80 text-sm">Consultancy</p>
-                    <p className="text-white font-medium">Hotelna Hospitality Consultancy</p>
+                    <p className="text-foreground/80 text-sm">Consultancy</p>
+                    <p className="text-foreground font-medium">Hotelna Hospitality Consultancy</p>
                   </div>
                 </motion.div>
               </motion.div>
@@ -372,12 +373,12 @@ export function Contact() {
               transition={{ duration: 1, delay: 0.7, ease: "easeOut", type: "spring", stiffness: 100 }}
             >
               <motion.div
-                className="relative rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset] h-full"
+                className="relative rounded-3xl border border-border bg-gradient-to-b from-foreground/5 to-foreground/[0.02] p-10 backdrop-blur-sm h-full"
                 whileHover={{ scale: 1.02, rotateY: -2, transition: { duration: 0.3 } }}
               >
-              <div className="absolute -top-5 -left-5 -z-10 h-40 w-40 rounded-full bg-gradient-to-b from-[#d5b15f]/10 to-transparent blur-md"></div>
+              <div className="absolute -top-5 -left-5 -z-10 h-40 w-40 rounded-full bg-gradient-to-b from-primary/10 to-transparent blur-md"></div>
               <motion.h3
-                className="text-2xl font-bold text-white mb-6"
+                className="text-2xl font-bold text-foreground mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={showContent ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
@@ -408,7 +409,7 @@ export function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 1.2 }}
                 >
-                  <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground/80 mb-2">
                     Name
                   </label>
                   <motion.input
@@ -418,10 +419,10 @@ export function Contact() {
                     value={formData.name}
                     onChange={handleInputChange}
                     maxLength={100}
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#d5b15f] focus:border-transparent transition-all duration-200 ${
+                    className={`w-full px-4 py-3 bg-background/10 dark:bg-white/10 border rounded-xl text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 ${
                       formData.name.length > 0 && formData.name.length < 2
                         ? 'border-red-400/50'
-                        : 'border-white/20'
+                        : 'border-border'
                     }`}
                     placeholder="Your Name"
                     required
@@ -432,11 +433,11 @@ export function Contact() {
                     <span className={`text-xs ${
                       formData.name.length > 0 && formData.name.length < 2
                         ? 'text-red-400'
-                        : 'text-white/60'
+                        : 'text-foreground/60'
                     }`}>
                       {formData.name.length > 0 && formData.name.length < 2 ? 'At least 2 characters required' : ''}
                     </span>
-                    <span className="text-xs text-white/40">
+                    <span className="text-xs text-foreground/40">
                       {formData.name.length}/100
                     </span>
                   </div>
@@ -446,7 +447,7 @@ export function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 1.3 }}
                 >
-                  <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground/80 mb-2">
                     Email
                   </label>
                   <motion.input
@@ -455,7 +456,7 @@ export function Contact() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#d5b15f] focus:border-transparent transition-all duration-200"
+                    className="w-full px-4 py-3 bg-background/10 dark:bg-white/10 border border-border rounded-xl text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200"
                     placeholder="Your Email"
                     required
                     disabled={isSubmitting}
@@ -467,7 +468,7 @@ export function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 1.4 }}
                 >
-                  <label htmlFor="subject" className="block text-sm font-medium text-white/80 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-foreground/80 mb-2">
                     Subject
                   </label>
                   <motion.input
@@ -477,10 +478,10 @@ export function Contact() {
                     value={formData.subject}
                     onChange={handleInputChange}
                     maxLength={200}
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#d5b15f] focus:border-transparent transition-all duration-200 ${
+                    className={`w-full px-4 py-3 bg-background/10 dark:bg-white/10 border rounded-xl text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 ${
                       formData.subject.length > 0 && formData.subject.length < 5
                         ? 'border-red-400/50'
-                        : 'border-white/20'
+                        : 'border-border'
                     }`}
                     placeholder="Message Subject"
                     required
@@ -491,11 +492,11 @@ export function Contact() {
                     <span className={`text-xs ${
                       formData.subject.length > 0 && formData.subject.length < 5
                         ? 'text-red-400'
-                        : 'text-white/60'
+                        : 'text-foreground/60'
                     }`}>
                       {formData.subject.length > 0 && formData.subject.length < 5 ? 'At least 5 characters required' : ''}
                     </span>
-                    <span className="text-xs text-white/40">
+                    <span className="text-xs text-foreground/40">
                       {formData.subject.length}/200
                     </span>
                   </div>
@@ -505,7 +506,7 @@ export function Contact() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 1.5 }}
                 >
-                  <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground/80 mb-2">
                     Message
                   </label>
                   <motion.textarea
@@ -514,10 +515,10 @@ export function Contact() {
                     value={formData.message}
                     onChange={handleInputChange}
                     maxLength={2000}
-                    className={`w-full px-4 py-3 bg-white/10 border rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#d5b15f] focus:border-transparent transition-all duration-200 resize-none ${
+                    className={`w-full px-4 py-3 bg-background/10 dark:bg-white/10 border rounded-xl text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 resize-none ${
                       formData.message.length > 0 && formData.message.length < 10
                         ? 'border-red-400/50'
-                        : 'border-white/20'
+                        : 'border-border'
                     }`}
                     placeholder="Please describe your inquiry in detail..."
                     rows={6}
@@ -529,11 +530,11 @@ export function Contact() {
                     <span className={`text-xs ${
                       formData.message.length > 0 && formData.message.length < 10
                         ? 'text-red-400'
-                        : 'text-white/60'
+                        : 'text-foreground/60'
                     }`}>
                       {formData.message.length > 0 && formData.message.length < 10 ? 'At least 10 characters required' : ''}
                     </span>
-                    <span className="text-xs text-white/40">
+                    <span className="text-xs text-foreground/40">
                       {formData.message.length}/2000
                     </span>
                   </div>
@@ -544,12 +545,12 @@ export function Contact() {
                   className={`w-full px-6 py-3 font-semibold rounded-xl shadow-md transition-all duration-200 flex items-center justify-center gap-2 ${
                     isSubmitting
                       ? 'bg-gray-400 text-gray-700 cursor-not-allowed'
-                      : 'bg-[#d5b15f] text-black hover:bg-[#c4a24f]'
+                      : 'bg-primary text-primary-foreground hover:bg-primary/90'
                   }`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 1.6 }}
-                  whileHover={isSubmitting ? {} : { scale: 1.05, backgroundColor: "#c4a24f" }}
+                  whileHover={isSubmitting ? {} : { scale: 1.05 }}
                   whileTap={isSubmitting ? {} : { scale: 0.98 }}
                 >
                   {isSubmitting && (

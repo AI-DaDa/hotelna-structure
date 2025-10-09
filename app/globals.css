@@ -3,39 +3,40 @@
 
 @variant dark (&:is(.dark *));
 
+/* Light Theme - White background, Black text, Blue accent */
 :root {
-  --background: oklch(1.0 0 0);
-  --foreground: #121113; /* Updated foreground color to specified dark color */
-  --card: oklch(1.0 0 0);
-  --card-foreground: #121113; /* Updated card foreground to match */
-  --popover: oklch(1.0 0 0);
-  --popover-foreground: #121113; /* Updated popover foreground to match */
-  --primary: oklch(0.75 0.12 78); /* Hotelna golden color #d5b15f */
-  --primary-foreground: oklch(0.1 0 0);
-  --secondary: oklch(0.536 0.0398 196.028);
-  --secondary-foreground: oklch(1.0 0 0);
-  --muted: oklch(0.967 0.0029 264.5419);
-  --muted-foreground: oklch(0.551 0.0234 264.3637);
-  --accent: oklch(0.9491 0 0);
-  --accent-foreground: #121113; /* Updated accent foreground to match */
-  --destructive: oklch(0.6368 0.2078 25.3313);
-  --destructive-foreground: oklch(0.9851 0 0);
-  --border: oklch(0.9276 0.0058 264.5313);
-  --input: oklch(0.9276 0.0058 264.5313);
-  --ring: oklch(0.6716 0.1368 48.513);
-  --chart-1: oklch(0.594 0.0443 196.0233);
-  --chart-2: oklch(0.7214 0.1337 49.9802);
-  --chart-3: oklch(0.8721 0.0864 68.5474);
-  --chart-4: oklch(0.6268 0 0);
-  --chart-5: oklch(0.683 0 0);
-  --sidebar: oklch(0.967 0.0029 264.5419);
-  --sidebar-foreground: #121113; /* Updated sidebar foreground to match */
-  --sidebar-primary: oklch(0.6716 0.1368 48.513);
-  --sidebar-primary-foreground: oklch(1.0 0 0);
-  --sidebar-accent: oklch(1.0 0 0);
-  --sidebar-accent-foreground: #121113; /* Updated sidebar accent foreground to match */
-  --sidebar-border: oklch(0.9276 0.0058 264.5313);
-  --sidebar-ring: oklch(0.6716 0.1368 48.513);
+  --background: #FFFFFF;
+  --foreground: #000000;
+  --card: #FFFFFF;
+  --card-foreground: #000000;
+  --popover: #FFFFFF;
+  --popover-foreground: #000000;
+  --primary: #2F4763; /* Blue accent for light theme */
+  --primary-foreground: #FFFFFF;
+  --secondary: #F5F5F5;
+  --secondary-foreground: #000000;
+  --muted: #F5F5F5;
+  --muted-foreground: #000000; /* Changed to pure black */
+  --accent: #2F4763; /* Blue accent for light theme */
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #E5E5E5;
+  --input: #E5E5E5;
+  --ring: #2F4763;
+  --chart-1: #2F4763;
+  --chart-2: #4B5563;
+  --chart-3: #6B7280;
+  --chart-4: #9CA3AF;
+  --chart-5: #D1D5DB;
+  --sidebar: #F5F5F5;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: #2F4763;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #FFFFFF;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border: #E5E5E5;
+  --sidebar-ring: #2F4763;
   --font-sans: 'Dubai', sans-serif;
   --font-heading: 'Dubai', sans-serif;
   --font-serif: serif;
@@ -51,56 +52,57 @@
   --shadow-2xl: 0px 1px 4px 0px hsl(0 0% 0% / 0.13);
   --tracking-normal: 0rem;
   --spacing: 0.25rem;
-  --duration: 10s; /* Added duration for marquee animation */
-  --gap: 1rem; /* Added gap for marquee animation */
+  --duration: 10s;
+  --gap: 1rem;
 }
 
+/* Dark Theme - Black background, White text, Gold accent */
 .dark {
-  --background: oklch(0.1797 0.0043 308.1928);
-  --foreground: oklch(0.8109 0 0);
-  --card: oklch(0.1822 0 0);
-  --card-foreground: oklch(0.8109 0 0);
-  --popover: oklch(0.1797 0.0043 308.1928);
-  --popover-foreground: oklch(0.8109 0 0);
-  --primary: oklch(0.75 0.12 78); /* Hotelna golden color #d5b15f */
-  --primary-foreground: oklch(0.1 0 0);
-  --secondary: oklch(0.594 0.0443 196.0233);
-  --secondary-foreground: oklch(0.1797 0.0043 308.1928);
-  --muted: oklch(0.252 0 0);
-  --muted-foreground: oklch(0.6268 0 0);
-  --accent: oklch(0.3211 0 0);
-  --accent-foreground: oklch(0.8109 0 0);
-  --destructive: oklch(0.594 0.0443 196.0233);
-  --destructive-foreground: oklch(0.1797 0.0043 308.1928);
-  --border: oklch(0.252 0 0);
-  --input: oklch(0.252 0 0);
-  --ring: oklch(0.7214 0.1337 49.9802);
-  --chart-1: oklch(0.594 0.0443 196.0233);
-  --chart-2: oklch(0.7214 0.1337 49.9802);
-  --chart-3: oklch(0.8721 0.0864 68.5474);
-  --chart-4: oklch(0.6268 0 0);
-  --chart-5: oklch(0.683 0 0);
-  --sidebar: oklch(0.1822 0 0);
-  --sidebar-foreground: oklch(0.8109 0 0);
-  --sidebar-primary: oklch(0.7214 0.1337 49.9802);
-  --sidebar-primary-foreground: oklch(0.1797 0.0043 308.1928);
-  --sidebar-accent: oklch(0.3211 0 0);
-  --sidebar-accent-foreground: oklch(0.8109 0 0);
-  --sidebar-border: oklch(0.252 0 0);
-  --sidebar-ring: oklch(0.7214 0.1337 49.9802);
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --card: #0A0A0A;
+  --card-foreground: #FFFFFF;
+  --popover: #000000;
+  --popover-foreground: #FFFFFF;
+  --primary: #D5B15F; /* Hotelna golden color for dark theme */
+  --primary-foreground: #000000;
+  --secondary: #1A1A1A;
+  --secondary-foreground: #FFFFFF;
+  --muted: #1A1A1A;
+  --muted-foreground: #A0A0A0;
+  --accent: #D5B15F; /* Hotelna golden color for dark theme */
+  --accent-foreground: #000000;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #2A2A2A;
+  --input: #2A2A2A;
+  --ring: #D5B15F;
+  --chart-1: #D5B15F;
+  --chart-2: #B8964D;
+  --chart-3: #9A7E3F;
+  --chart-4: #7C6531;
+  --chart-5: #5E4D23;
+  --sidebar: #0A0A0A;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #D5B15F;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent: #1A1A1A;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #2A2A2A;
+  --sidebar-ring: #D5B15F;
   --font-sans: 'Dubai', sans-serif;
   --font-heading: 'Dubai', sans-serif;
   --font-serif: serif;
   --font-mono: JetBrains Mono, monospace;
   --radius: 0.75rem;
-  --shadow-2xs: 0px 1px 4px 0px hsl(0 0% 0% / 0.03);
-  --shadow-xs: 0px 1px 4px 0px hsl(0 0% 0% / 0.03);
-  --shadow-sm: 0px 1px 4px 0px hsl(0 0% 0% / 0.05), 0px 1px 2px -1px hsl(0 0% 0% / 0.05);
-  --shadow: 0px 1px 4px 0px hsl(0 0% 0% / 0.05), 0px 1px 2px -1px hsl(0 0% 0% / 0.05);
-  --shadow-md: 0px 1px 4px 0px hsl(0 0% 0% / 0.05), 0px 2px 4px -1px hsl(0 0% 0% / 0.05);
-  --shadow-lg: 0px 1px 4px 0px hsl(0 0% 0% / 0.05), 0px 4px 6px -1px hsl(0 0% 0% / 0.05);
-  --shadow-xl: 0px 1px 4px 0px hsl(0 0% 0% / 0.05), 0px 8px 10px -1px hsl(0 0% 0% / 0.05);
-  --shadow-2xl: 0px 1px 4px 0px hsl(0 0% 0% / 0.13);
+  --shadow-2xs: 0px 1px 4px 0px hsl(0 0% 100% / 0.03);
+  --shadow-xs: 0px 1px 4px 0px hsl(0 0% 100% / 0.03);
+  --shadow-sm: 0px 1px 4px 0px hsl(0 0% 100% / 0.05), 0px 1px 2px -1px hsl(0 0% 100% / 0.05);
+  --shadow: 0px 1px 4px 0px hsl(0 0% 100% / 0.05), 0px 1px 2px -1px hsl(0 0% 100% / 0.05);
+  --shadow-md: 0px 1px 4px 0px hsl(0 0% 100% / 0.05), 0px 2px 4px -1px hsl(0 0% 100% / 0.05);
+  --shadow-lg: 0px 1px 4px 0px hsl(0 0% 100% / 0.05), 0px 4px 6px -1px hsl(0 0% 100% / 0.05);
+  --shadow-xl: 0px 1px 4px 0px hsl(0 0% 100% / 0.05), 0px 8px 10px -1px hsl(0 0% 100% / 0.05);
+  --shadow-2xl: 0px 1px 4px 0px hsl(0 0% 100% / 0.13);
 }
 
 @theme inline {
@@ -168,15 +170,15 @@ body {
   letter-spacing: var(--tracking-normal);
 }
 
-/* Added custom text selection styling with golden background and black text */
+/* Theme-responsive text selection styling */
 ::selection {
-  background-color: #d5b15f;
-  color: #000000;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
 }
 
 ::-moz-selection {
-  background-color: #d5b15f;
-  color: #000000;
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
 }
 
 @layer base {

@@ -4,12 +4,12 @@
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #d5b15f !important;
+  background-color: hsl(var(--primary)) !important;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  color: #d5b15f !important;
+  color: hsl(var(--primary)) !important;
 }
 
 .swiper-button-next:after,
@@ -22,7 +22,7 @@
 }
 
 .swiper-scrollbar-drag {
-  background: #d5b15f !important;
+  background: hsl(var(--primary)) !important;
 }
 
 .swiper-slide {

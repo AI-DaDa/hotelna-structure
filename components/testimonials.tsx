@@ -1,5 +1,6 @@
 import { Marquee } from "@/components/magicui/marquee"
 import Image from "next/image"
+import { branding } from "@/lib/branding"
 
 const testimonials = [
   {
@@ -75,15 +76,15 @@ const TestimonialCard = ({
 }) => {
   return (
     <div className="relative w-full max-w-xs overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]">
-      <div className="absolute -top-5 -left-5 -z-10 h-40 w-40 rounded-full bg-gradient-to-b from-[#d5b15f]/10 to-transparent blur-md"></div>
+      <div className="absolute -top-5 -left-5 -z-10 h-40 w-40 rounded-full bg-gradient-to-b from-primary/10 to-transparent blur-md"></div>
 
-      <div className="text-white/90 leading-relaxed">{body}</div>
+      <div className={`${branding.text.body('base')} text-foreground/90 leading-relaxed`}>{body}</div>
 
       <div className="mt-5 flex items-center gap-2">
         <Image src={img || "/placeholder.svg"} alt={name} height={40} width={40} className="h-10 w-10 rounded-full" />
         <div className="flex flex-col">
-          <div className="leading-5 font-medium tracking-tight text-white">{name}</div>
-          <div className="leading-5 tracking-tight text-white/60">{username}</div>
+          <div className="leading-5 font-medium tracking-tight text-foreground">{name}</div>
+          <div className="leading-5 tracking-tight text-foreground/60">{username}</div>
         </div>
       </div>
     </div>
@@ -112,7 +113,6 @@ export function TestimonialsSection() {
                 whiteSpace: 'nowrap',
                 fontSize: '9cqw',
                 textAlign: 'center',
-                color: 'rgba(255, 255, 255, 1)',
                 fontFamily: 'Dubai',
                 fontWeight: 'bold',
                 fontStyle: 'normal',
@@ -122,12 +122,12 @@ export function TestimonialsSection() {
                 borderRadius: '0',
               }}
             >
-              <div className="paneflow-text-content">
-                Testimonials
+              <div className={`paneflow-text-content text-foreground ${branding.typography.display.md}`}>
+
               </div>
             </div>
           </div>
-          <p className="mt-5 relative z-10 text-center text-lg text-zinc-500">
+          <p className={`mt-5 relative z-10 text-center ${branding.text.muted('lg')}`}>
             From intuitive design to powerful features, our app has become an essential tool for users around the world.
           </p>
         </div>
@@ -161,21 +161,21 @@ export function TestimonialsSection() {
           </div>
 
           {/* Overlay with "To be launched soon" message */}
-          <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <div className="absolute inset-0 flex items-center justify-center bg-background/60 backdrop-blur-sm">
             <div className="text-center">
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h3 className={`${branding.typography.heading.h2} font-bold text-foreground mb-4`}>
                 To be launched soon
               </h3>
-              <div className="w-24 h-1 bg-gradient-to-r from-[#d5b15f]/60 via-[#d5b15f] to-[#d5b15f]/60 mx-auto rounded-full"></div>
+              <div className="w-24 h-1 bg-gradient-to-r from-primary/60 via-primary to-primary/60 mx-auto rounded-full"></div>
             </div>
           </div>
         </div>
 
         <div className="-mt-8 flex justify-center opacity-50 pointer-events-none">
-          <button className="group relative inline-flex items-center gap-2 rounded-full border border-[#d5b15f]/30 bg-black/50 px-6 py-3 text-sm font-medium text-white transition-all hover:border-[#d5b15f]/60 hover:bg-[#d5b15f]/10 active:scale-95">
-            <div className="absolute inset-x-0 -top-px mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-[#d5b15f]/40 to-transparent"></div>
-            <div className="absolute inset-x-0 -bottom-px mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-[#d5b15f]/40 to-transparent"></div>
-            <svg className="h-4 w-4 text-[#d5b15f]" fill="currentColor" viewBox="0 0 24 24">
+          <button className="group relative inline-flex items-center gap-2 rounded-full border border-primary/30 bg-background/50 px-6 py-3 text-sm font-medium text-foreground transition-all hover:border-primary/60 hover:bg-primary/10 active:scale-95">
+            <div className="absolute inset-x-0 -top-px mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
+            <div className="absolute inset-x-0 -bottom-px mx-auto h-px w-3/4 bg-gradient-to-r from-transparent via-primary/40 to-transparent"></div>
+            <svg className="h-4 w-4 text-primary" fill="currentColor" viewBox="0 0 24 24">
               <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
             </svg>
             Share your experience

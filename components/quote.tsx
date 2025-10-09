@@ -1,17 +1,58 @@
 "use client"
 
 import { branding } from '@/lib/branding'
+import { useEffect, useState } from 'react'
 
 export function Quote() {
+  const [theme, setTheme] = useState<"light" | "dark">("dark")
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+
+    // Get initial theme
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null
+    if (savedTheme) {
+      setTheme(savedTheme)
+    } else {
+      // Check if document has the class
+      const currentTheme = document.documentElement.classList.contains("light") ? "light" : "dark"
+      setTheme(currentTheme)
+    }
+
+    // Listen for theme changes
+    const observer = new MutationObserver(() => {
+      const currentTheme = document.documentElement.classList.contains("light") ? "light" : "dark"
+      setTheme(currentTheme)
+    })
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
+  // Determine which pattern to use based on theme
+  const patternImage = theme === 'dark'
+    ? '/logo/bg-pattern-dark.svg'
+    : '/logo/bg-pattern-light.svg'
+
+  // Prevent hydration mismatch
+  if (!mounted) {
+    return null
+  }
+
   return (
     <section className="w-full pb-24 px-4">
       <div className="mx-auto max-w-4xl rounded-[40px] border border-white/20 p-2 shadow-sm">
         <div className="relative mx-auto h-[240px] sm:h-[280px] md:h-[320px] lg:h-[360px] max-w-full overflow-hidden rounded-[38px] border border-white/20 bg-primary p-2 shadow-sm">
-          {/* Hotelna patterns background at 45 degrees */}
+          {/* Theme-responsive Hotelna patterns background */}
           <div
             className="absolute inset-0 z-0 opacity-35"
             style={{
-              backgroundImage: "url('/images/Hotelna-Patterns.jpg')",
+              backgroundImage: `url('${patternImage}')`,
               backgroundSize: "700px auto",
               backgroundRepeat: "repeat",
               backgroundPosition: "center",
@@ -30,10 +71,10 @@ export function Quote() {
 
           <div className="relative z-20 flex items-center justify-center h-full">
             <div className="text-center px-4 sm:px-6 lg:px-8">
-              <h2 className={`${branding.typography.heading.h3} font-bold text-white mb-3 sm:mb-4 md:mb-5 leading-tight max-w-6xl mx-auto`}>
+              <h2 className={`${branding.typography.heading.h3} font-bold text-primary-foreground mb-3 sm:mb-4 md:mb-5 leading-tight max-w-6xl mx-auto`}>
                 My approach is grounded, strategic, and personalised — built on a proven track record of turning vision into measurable success. True Hospitality is not just about service, it&apos;s about creating moments that guests carry with them long after they&apos;ve checked out.
               </h2>
-              <p className={`${branding.typography.body.base} text-white max-w-xl mx-auto`}>
+              <p className={`${branding.typography.body.base} text-primary-foreground max-w-xl mx-auto`}>
                 - Solomon Khaddour, Founder & CEO of Hotelna
               </p>
             </div>
