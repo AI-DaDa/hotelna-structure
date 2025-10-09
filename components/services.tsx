@@ -1,7 +1,38 @@
 // Updated to sync dependencies - v1.0.3 - Unified branding system
+"use client"
+
 import { branding } from '@/lib/branding'
+import { useEffect, useState } from 'react'
 
 export default function Services() {
+  const [theme, setTheme] = useState<"light" | "dark">("dark")
+
+  useEffect(() => {
+    // Get initial theme
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null
+    if (savedTheme) {
+      setTheme(savedTheme)
+    } else {
+      const currentTheme = document.documentElement.classList.contains("light") ? "light" : "dark"
+      setTheme(currentTheme)
+    }
+
+    // Listen for theme changes
+    const observer = new MutationObserver(() => {
+      const currentTheme = document.documentElement.classList.contains("light") ? "light" : "dark"
+      setTheme(currentTheme)
+    })
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
+  const textColorClass = theme === "light" ? "text-slate-800" : "text-slate-200"
+
   return (
     <section id="services" className={`${branding.components.section} bg-background`}>
       {/* Background decorative elements */}
@@ -24,19 +55,19 @@ export default function Services() {
         </h2>
 
         <div className="max-w-5xl mx-auto mb-16 space-y-6">
-          <p className={branding.text.body('xl')}>
+          <p className={`${branding.text.body('xl')} ${textColorClass}`}>
             With over two decades of leadership in the luxury hospitality sector, I am proud to launch my bespoke hospitality Hub consultancy, offering expert guidance to hoteliers, developers, investors, and operators across the UK and the World.
           </p>
 
-          <p className={branding.text.body('lg')}>
+          <p className={`${branding.text.body('lg')} ${textColorClass}`}>
             My career has been built within some of the capital&rsquo;s most prestigious five-star properties, including The Capital Hotel in Knightsbridge and the award-winning 11 Cadogan Gardens in Chelsea. I bring first-hand experience in operational transformation, strategic repositioning, revenue growth, and Michelin-level F&B development.
           </p>
 
-          <p className={branding.text.body('lg')}>
+          <p className={`${branding.text.body('lg')} ${textColorClass}`}>
             Swiss-educated at the renowned Les Roches Marbella, I combine a deep understanding of international hospitality standards with a distinctly London-centric commercial acumen. From overseeing major refurbishments and openings to securing top industry accolades and driving profitability, I offer tailored solutions that balance guest experience with bottom-line results.
           </p>
 
-          <p className={branding.text.body('lg')}>
+          <p className={`${branding.text.body('lg')} ${textColorClass}`}>
             Whether supporting independent boutique hotels or luxury branded properties, my consultancy focuses on:
           </p>
         </div>
