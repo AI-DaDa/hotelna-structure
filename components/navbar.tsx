@@ -76,7 +76,7 @@ export function Navbar({ isScrolled }: NavbarProps) {
             rel="noopener noreferrer"
           >
             <Image
-              src={theme === "dark" ? "/logo/Dark-icon.svg" : "/logo/Light-icon.svg"}
+              src={theme === "dark" ? "/logo/Dark-Icon.svg" : "/logo/Light-Icon.svg"}
               alt="Logo"
               width={32}
               height={32}

@@ -3,7 +3,6 @@
 import { useRef, useEffect, useState } from "react"
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { useTheme } from "next-themes"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 // ScrollSmoother requires ScrollTrigger
 import { ScrollSmoother } from "gsap/ScrollSmoother";
@@ -17,11 +16,33 @@ gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollSmoother, SplitText);
 export function About() {
   const paragraphRef = useRef<HTMLParagraphElement>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
-  const { theme } = useTheme()
+  const [theme, setTheme] = useState<"light" | "dark">("dark")
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
+
+    // Get initial theme
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null
+    if (savedTheme) {
+      setTheme(savedTheme)
+    } else {
+      const currentTheme = document.documentElement.classList.contains("light") ? "light" : "dark"
+      setTheme(currentTheme)
+    }
+
+    // Listen for theme changes
+    const observer = new MutationObserver(() => {
+      const currentTheme = document.documentElement.classList.contains("light") ? "light" : "dark"
+      setTheme(currentTheme)
+    })
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    })
+
+    return () => observer.disconnect()
   }, [])
 
   useEffect(() => {
