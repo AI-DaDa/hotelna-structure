@@ -129,7 +129,7 @@ export function FAQSection() {
     <section
       ref={sectionRef}
       id="faq"
-      className="min-h-screen w-full py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8"
+      className="min-h-screen w-full py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background"
       style={{
         containerType: 'size',
         containerName: 'faq-section',

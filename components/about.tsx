@@ -59,8 +59,8 @@ export function About() {
 
       // Theme-responsive colors
       const isDark = theme === 'dark'
-      const dimColor = isDark ? "rgba(255, 255, 255, 0.3)" : "rgba(0, 0, 0, 0.3)"
-      const brightColor = isDark ? "rgba(255, 255, 255, 1)" : "rgba(0, 0, 0, 1)"
+      const dimColor = isDark ? "rgba(255, 255, 255, 0.3)" : "rgba(255, 255, 255, 0.3)"
+      const brightColor = isDark ? "rgba(255, 255, 255, 1)" : "rgba(255, 255, 255, 1)"
 
       // Set initial state - all characters dim
       gsap.set(splitText.words, {

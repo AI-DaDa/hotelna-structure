@@ -60,7 +60,7 @@ export function StickyFooter() {
 
   const patternImage = currentTheme === 'dark'
     ? '/logo/Logo-B.svg'
-    : '/logo/Logo-W.svg'
+    : '/logo/Logo.svg'
 
   return (
     <AnimatePresence>

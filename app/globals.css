@@ -3,40 +3,40 @@
 
 @variant dark (&:is(.dark *));
 
-/* Light Theme - White background, Black text, Blue accent */
+/* Light Theme - Dark blue background, White text */
 :root {
-  --background: #FFFFFF;
-  --foreground: #000000;
-  --card: #FFFFFF;
-  --card-foreground: #000000;
-  --popover: #FFFFFF;
-  --popover-foreground: #000000;
-  --primary: #2F4763; /* Blue accent for light theme */
-  --primary-foreground: #FFFFFF;
-  --secondary: #F5F5F5;
-  --secondary-foreground: #000000;
-  --muted: #F5F5F5;
-  --muted-foreground: #000000; /* Changed to pure black */
-  --accent: #2F4763; /* Blue accent for light theme */
-  --accent-foreground: #FFFFFF;
+  --background: #2F4763;
+  --foreground: #FFFFFF;
+  --card: #2F4763;
+  --card-foreground: #FFFFFF;
+  --popover: #2F4763;
+  --popover-foreground: #FFFFFF;
+  --primary: #FFFFFF; /* White accent for light theme */
+  --primary-foreground: #2F4763;
+  --secondary: #3A5573;
+  --secondary-foreground: #FFFFFF;
+  --muted: #3A5573;
+  --muted-foreground: #FFFFFF;
+  --accent: #FFFFFF; /* White accent for light theme */
+  --accent-foreground: #2F4763;
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
-  --border: #E5E5E5;
-  --input: #E5E5E5;
-  --ring: #2F4763;
-  --chart-1: #2F4763;
-  --chart-2: #4B5563;
-  --chart-3: #6B7280;
-  --chart-4: #9CA3AF;
-  --chart-5: #D1D5DB;
-  --sidebar: #F5F5F5;
-  --sidebar-foreground: #000000;
-  --sidebar-primary: #2F4763;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #FFFFFF;
-  --sidebar-accent-foreground: #000000;
-  --sidebar-border: #E5E5E5;
-  --sidebar-ring: #2F4763;
+  --border: #4A6583;
+  --input: #3A5573;
+  --ring: #FFFFFF;
+  --chart-1: #FFFFFF;
+  --chart-2: #E0E0E0;
+  --chart-3: #C0C0C0;
+  --chart-4: #A0A0A0;
+  --chart-5: #808080;
+  --sidebar: #3A5573;
+  --sidebar-foreground: #FFFFFF;
+  --sidebar-primary: #FFFFFF;
+  --sidebar-primary-foreground: #2F4763;
+  --sidebar-accent: #3A5573;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #4A6583;
+  --sidebar-ring: #FFFFFF;
   --font-sans: 'Dubai', sans-serif;
   --font-heading: 'Dubai', sans-serif;
   --font-serif: serif;

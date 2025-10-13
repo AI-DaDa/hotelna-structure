@@ -93,7 +93,7 @@ const TestimonialCard = ({
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" className="mb-24">
+    <section id="testimonials" className="mb-24 bg-background py-24">
       <div className="mx-auto max-w-7xl">
 
         <div className="mx-auto max-w-[540px]">

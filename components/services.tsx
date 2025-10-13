@@ -31,7 +31,7 @@ export default function Services() {
     return () => observer.disconnect()
   }, [])
 
-  const textColorClass = theme === "light" ? "text-slate-800" : "text-slate-200"
+  const textColorClass = theme === "light" ? "text-slate-200" : "text-slate-200"
 
   return (
     <section id="services" className={`${branding.components.section} bg-background`}>

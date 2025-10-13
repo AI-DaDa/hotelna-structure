@@ -98,7 +98,7 @@ export function Collections() {
   const [selectedImage, setSelectedImage] = useState(0)
 
   return (
-    <section id="collection" className="mb-24">
+    <section id="collection" className="mb-24 bg-background py-24">
       <div className="mx-auto max-w-7xl">
 
         <div className="mx-auto max-w-[540px]">

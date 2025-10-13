@@ -204,7 +204,7 @@ export function Contact() {
 
               {/* World Clocks */}
               <motion.div
-                className="relative rounded-3xl border border-border bg-gradient-to-b from-foreground/5 to-foreground/[0.02] p-10 backdrop-blur-sm"
+                className="relative rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
                 initial={{ opacity: 0, x: -100, rotateY: -15, scale: 0.8 }}
                 animate={{ opacity: 1, x: 0, rotateY: 0, scale: 1 }}
                 transition={{ duration: 1, delay: 0.6, ease: "easeOut", type: "spring", stiffness: 100 }}
@@ -226,7 +226,7 @@ export function Contact() {
                   transition={{ duration: 0.6, delay: 1 }}
                 >
                   <motion.div
-                    className="rounded-3xl border border-border bg-gradient-to-b from-foreground/5 to-foreground/[0.02] p-6 backdrop-blur-sm"
+                    className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
                     initial={{ opacity: 0, y: 50, rotateX: -10 }}
                     animate={{ opacity: 1, y: 0, rotateX: 0 }}
                     transition={{ duration: 0.6, delay: 1.1, type: "spring" }}
@@ -240,7 +240,7 @@ export function Contact() {
                   <p className="text-foreground/60 text-sm mt-1">9:00 AM - 6:00 PM</p>
                   </motion.div>
                   <motion.div
-                    className="rounded-3xl border border-border bg-gradient-to-b from-foreground/5 to-foreground/[0.02] p-6 backdrop-blur-sm"
+                    className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
                     initial={{ opacity: 0, y: 50, rotateX: -10 }}
                     animate={{ opacity: 1, y: 0, rotateX: 0 }}
                     transition={{ duration: 0.6, delay: 1.2, type: "spring" }}
@@ -254,7 +254,7 @@ export function Contact() {
                     <p className="text-foreground/60 text-sm mt-1">9:00 AM - 5:00 PM</p>
                   </motion.div>
                   <motion.div
-                    className="rounded-3xl border border-border bg-gradient-to-b from-foreground/5 to-foreground/[0.02] p-6 backdrop-blur-sm"
+                    className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
                     initial={{ opacity: 0, y: 50, rotateX: -10 }}
                     animate={{ opacity: 1, y: 0, rotateX: 0 }}
                     transition={{ duration: 0.6, delay: 1.3, type: "spring" }}
@@ -268,7 +268,7 @@ export function Contact() {
                     <p className="text-foreground/60 text-sm mt-1">8:00 AM - 4:00 PM</p>
                   </motion.div>
                   <motion.div
-                    className="rounded-3xl border border-border bg-gradient-to-b from-foreground/5 to-foreground/[0.02] p-6 backdrop-blur-sm"
+                    className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
                     initial={{ opacity: 0, y: 50, rotateX: -10 }}
                     animate={{ opacity: 1, y: 0, rotateX: 0 }}
                     transition={{ duration: 0.6, delay: 1.4, type: "spring" }}
@@ -286,7 +286,7 @@ export function Contact() {
 
               {/* Contact Information */}
               <motion.div
-                className="relative rounded-3xl border border-border bg-gradient-to-b from-foreground/5 to-foreground/[0.02] p-10 backdrop-blur-sm"
+                className="relative rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset]"
                 initial={{ opacity: 0, x: -100, rotateY: -15, scale: 0.8 }}
                 animate={{ opacity: 1, x: 0, rotateY: 0, scale: 1 }}
                 transition={{ duration: 1, delay: 0.8, ease: "easeOut", type: "spring", stiffness: 100 }}
@@ -373,7 +373,7 @@ export function Contact() {
               transition={{ duration: 1, delay: 0.7, ease: "easeOut", type: "spring", stiffness: 100 }}
             >
               <motion.div
-                className="relative rounded-3xl border border-border bg-gradient-to-b from-foreground/5 to-foreground/[0.02] p-10 backdrop-blur-sm h-full"
+                className="relative rounded-3xl border border-white/10 bg-gradient-to-b from-white/5 to-white/[0.02] p-10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset] h-full"
                 whileHover={{ scale: 1.02, rotateY: -2, transition: { duration: 0.3 } }}
               >
               <div className="absolute -top-5 -left-5 -z-10 h-40 w-40 rounded-full bg-gradient-to-b from-primary/10 to-transparent blur-md"></div>
@@ -550,7 +550,7 @@ export function Contact() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 1.6 }}
-                  whileHover={isSubmitting ? {} : { scale: 1.05 }}
+                  whileHover={isSubmitting ? {} : { scale: 1.05, backgroundColor: "#c4a24f" }}
                   whileTap={isSubmitting ? {} : { scale: 0.98 }}
                 >
                   {isSubmitting && (

@@ -107,7 +107,7 @@ const ParallaxLogos: React.FC<ParallaxLogosProps> = ({
 export function LogoCarousel() {
 
   return (
-    <section className="relative w-full py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+    <section className="relative w-full py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-background">
       {/* FAQ-Style Title */}
       <div className="text-center mb-12 sm:mb-16 lg:mb-20">
         <div className="inline-block">

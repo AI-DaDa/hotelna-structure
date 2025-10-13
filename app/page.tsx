@@ -69,7 +69,7 @@ export default function Home() {
       <div
         className="fixed inset-0 z-0 light:opacity-100 dark:opacity-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse 50% 35% at 50% 0%, rgba(47, 71, 99, 0.08), transparent 60%), #FFFFFF",
+          background: "radial-gradient(ellipse 50% 35% at 50% 0%, rgba(255, 255, 255, 0.05), transparent 60%), #2f4763",
         }}
       />
 
