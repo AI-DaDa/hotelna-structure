@@ -150,13 +150,16 @@ export function Navbar({ isScrolled }: NavbarProps) {
 
       {/* Mobile Header */}
       <header
-        className="sticky top-4 z-[9999] mx-4 flex w-auto flex-row items-center justify-between rounded-full backdrop-blur-sm border border-border/50 shadow-lg md:hidden px-4 py-3"
+        className="sticky top-4 z-[9999] mx-4 flex w-auto flex-row items-center justify-center rounded-full backdrop-blur-sm border border-border/50 shadow-lg md:hidden px-4 py-3"
         style={{
           backgroundColor: theme === "light" ? "rgba(47, 71, 99, 0.95)" : "rgba(0, 0, 0, 0.8)",
         }}
       >
-        <div className="flex items-center gap-3">
+        <div className="absolute left-4 flex items-center gap-3">
           <ThemeToggle />
+        </div>
+
+        <div className="flex items-center gap-2">
           <a
             className="flex items-center justify-center gap-2"
             href="#"
@@ -176,7 +179,7 @@ export function Navbar({ isScrolled }: NavbarProps) {
               width={128}
               height={32}
               className={`text-foreground h-8 z-200 transition-all duration-300 ${
-                isScrolled ? "w-0 opacity-0" : "w-32 opacity-100"
+                isScrolled ? "" : "w-32 opacity-100"
               }`}
             />
           </a>
@@ -184,7 +187,7 @@ export function Navbar({ isScrolled }: NavbarProps) {
 
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="flex items-center justify-center w-10 h-10 rounded-full bg-background/50 border border-border/50 transition-colors hover:bg-background/80"
+          className="absolute right-4 flex items-center justify-center w-10 h-10 rounded-full bg-background/50 border border-border/50 transition-colors hover:bg-background/80"
           aria-label="Toggle menu"
         >
           <div className="flex flex-col items-center justify-center w-5 h-5 space-y-1">
