@@ -164,14 +164,14 @@ export function Navbar({ isScrolled }: NavbarProps) {
             rel="noopener noreferrer"
           >
             <Image
-              src={theme === "dark" ? "/logo/Dark-icon.svg" : "/logo/Light-icon.svg"}
-              alt="Logo"
+              src={theme === "dark" ? "/logo/Dark-Icon.svg" : "/logo/Light-Icon.svg"}
+              alt="Log"
               width={32}
               height={32}
               className="text-foreground rounded-full size-8 w-8"
             />
             <Image
-              src={theme === "dark" ? "/logo/Logo-W.svg" : "/logo/Logo-B.svg"}
+              src={theme === "dark" ? "/logo/Logo-W.svg" : "/logo/Logo-W.svg"}
               alt="Logo"
               width={128}
               height={32}
