@@ -65,13 +65,13 @@ export default function Hero() {
             <div className="swiper-slide relative">
               <div className="absolute inset-0">
                 <Image
-                  src="/Assets/Bedroom 4 at 11 Cadogan Gardens.jpg"
-                  alt="Hotel Management"
+                  src="/images/Hotel Image.jpeg"
+                  alt="Hotel Entrance"
                   fill
                   className="object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-black/50"></div>
+                <div className="absolute inset-0 bg-black/40"></div>
               </div>
               <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
                 {/* <h3 className="text-5xl font-bold text-white mb-6">Hotel Management</h3>
@@ -81,38 +81,48 @@ export default function Hero() {
             <div className="swiper-slide relative">
               <div className="absolute inset-0">
                 <Image
-                  src="/Assets/Cadogan Hotel Dinner Image.avif"
-                  alt="Room Booking"
+                  src="/images/Hotel Image 2.jpeg"
+                  alt="Rooftop Dining Experience"
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/50"></div>
+                <div className="absolute inset-0 bg-black/40"></div>
               </div>
               <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
                 {/* <h3 className="text-5xl font-bold text-white mb-6">Room Booking</h3>
                 <p className="text-gray-200 text-xl max-w-3xl">Easy-to-use booking system for guests and staff</p> */}
               </div>
             </div>
-{/*
-
             <div className="swiper-slide relative">
               <div className="absolute inset-0">
                 <Image
-                  src="/Assets/"
-                  alt="Analytics Dashboard"
+                  src="/images/Hotel image 3.jpeg"
+                  alt="Housekeeping Service"
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/50"></div>
+                <div className="absolute inset-0 bg-black/40"></div>
               </div>
-
-  </div> */}
-
-              {/* <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-                <h3 className="text-5xl font-bold text-white mb-6">Analytics Dashboard</h3>
-                <p className="text-gray-200 text-xl max-w-3xl">Get insights into your hotel performance with detailed analytics</p>
-              </div> */}
-
+              <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+                {/* <h3 className="text-5xl font-bold text-white mb-6">Premium Service</h3>
+                <p className="text-gray-200 text-xl max-w-3xl">Exceptional service that exceeds expectations</p> */}
+              </div>
+            </div>
+            <div className="swiper-slide relative">
+              <div className="absolute inset-0">
+                <Image
+                  src="/images/hotel image 4.jpeg"
+                  alt="Luxury Hotel"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40"></div>
+              </div>
+              <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
+                {/* <h3 className="text-5xl font-bold text-white mb-6">Luxury Experience</h3>
+                <p className="text-gray-200 text-xl max-w-3xl">Crafting unforgettable hospitality moments</p> */}
+              </div>
+            </div>
           </div>
           {/* Add Pagination */}
           <div className="swiper-pagination !bottom-28 !z-20" style={{

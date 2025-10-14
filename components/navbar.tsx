@@ -58,15 +58,24 @@ export function Navbar({ isScrolled }: NavbarProps) {
     <>
       {/* Desktop Header */}
       <header
-        className={`sticky top-4 z-[9999] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-full md:flex backdrop-blur-sm border border-border/50 shadow-lg transition-all duration-300 ${
+        className={`sticky top-4 z-[9999] mx-auto hidden w-full flex-row items-center justify-between self-start rounded-full md:flex border shadow-lg transition-all duration-300 ${
           isScrolled ? "max-w-3xl px-2" : "max-w-5xl px-4"
-        } py-2`}
+        } py-2 ${theme === "light" ? "backdrop-blur-md border-white/10" : "backdrop-blur-sm border-border/50"}`}
         style={{
           willChange: "transform",
           transform: "translateZ(0)",
           backfaceVisibility: "hidden",
           perspective: "1000px",
-          backgroundColor: theme === "light" ? "rgba(47, 71, 99, 0.95)" : "rgba(0, 0, 0, 0.8)",
+          ...(theme === "light"
+            ? {
+                background: "linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+              }
+            : {
+                backgroundColor: "rgba(0, 0, 0, 0.8)",
+              }
+          ),
         }}
       >
         <div className="flex items-center gap-3">
@@ -150,9 +159,20 @@ export function Navbar({ isScrolled }: NavbarProps) {
 
       {/* Mobile Header */}
       <header
-        className="sticky top-4 z-[9999] mx-4 flex w-auto flex-row items-center justify-center rounded-full backdrop-blur-sm border border-border/50 shadow-lg md:hidden px-4 py-3"
+        className={`sticky top-4 z-[9999] mx-4 flex w-auto flex-row items-center justify-center rounded-full shadow-lg md:hidden px-4 py-3 border ${
+          theme === "light" ? "backdrop-blur-md border-white/10" : "backdrop-blur-sm border-border/50"
+        }`}
         style={{
-          backgroundColor: theme === "light" ? "rgba(47, 71, 99, 0.95)" : "rgba(0, 0, 0, 0.8)",
+          ...(theme === "light"
+            ? {
+                background: "linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.05) 100%)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+              }
+            : {
+                backgroundColor: "rgba(0, 0, 0, 0.8)",
+              }
+          ),
         }}
       >
         <div className="absolute left-4 flex items-center gap-3">
@@ -214,9 +234,20 @@ export function Navbar({ isScrolled }: NavbarProps) {
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-[9998] bg-background/50 backdrop-blur-sm md:hidden">
           <div
-            className="absolute top-20 left-4 right-4 backdrop-blur-md border border-border/50 rounded-2xl shadow-2xl p-6"
+            className={`absolute top-20 left-4 right-4 rounded-2xl shadow-2xl p-6 border ${
+              theme === "light" ? "backdrop-blur-md border-white/10" : "backdrop-blur-md border-border/50"
+            }`}
             style={{
-              backgroundColor: theme === "light" ? "rgba(47, 71, 99, 0.98)" : "rgba(0, 0, 0, 0.95)",
+              ...(theme === "light"
+                ? {
+                    background: "linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%)",
+                    backdropFilter: "blur(20px)",
+                    WebkitBackdropFilter: "blur(20px)",
+                  }
+                : {
+                    backgroundColor: "rgba(0, 0, 0, 0.95)",
+                  }
+              ),
             }}
           >
             <nav className="flex flex-col space-y-4">
